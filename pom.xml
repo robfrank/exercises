@@ -35,7 +35,7 @@
                 <!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <argLine>--enable-preview</argLine>
+                    <argLine>@{argLine} --enable-preview</argLine>
                 </configuration>
             </plugin>
             <plugin>
