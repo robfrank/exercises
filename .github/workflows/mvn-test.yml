@@ -2,6 +2,9 @@ name: CI - test and coverage
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
