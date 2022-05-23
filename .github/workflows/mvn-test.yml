@@ -9,7 +9,7 @@ on:
     branches:
       - main
 permissions:
-  pull-requests: read|write
+  pull-requests: write-all
 
 jobs:
   test:
