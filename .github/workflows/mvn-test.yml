@@ -42,12 +42,13 @@ jobs:
           reporter: java-junit
 
       - name: Get coverage files
+        if: ${{ github.actor != 'dependabot[bot]' }}
         run: |
           echo ::set-output name=COVERAGE_FILES::$(find **/jacoco*.xml -printf '%p,')
         id: coverage-files-generator
 
       - name: Codacy coverage reporter
-        if: ${{ matrix.os != 'windows-latest' }}
+        if: ${{ github.actor != 'dependabot[bot]' }}
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
