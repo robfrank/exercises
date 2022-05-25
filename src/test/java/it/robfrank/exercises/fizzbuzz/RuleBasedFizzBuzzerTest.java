@@ -13,14 +13,14 @@ class RuleBasedFizzBuzzerTest {
     @Test
     void whenRunningConfigurableFizzBuzz_ThenReturnExpectedOutput() {
 
-        RuleBasedFizzBuzzer configurableFizzBuzzer = new ConfigurableFizzBuzzerBuilder()
+        RuleBasedFizzBuzzer configurableFizzBuzzer = new RuleBasedFizzBuzzerBuilder()
                 .withRules(List.of(
-                        new Rule.RuleBuilder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").createRule(),
-                        new Rule.RuleBuilder().withCondition(n -> n % 15 == 0).withMapper(n -> "fizzbuzz").createRule()))
-                .withRule(new Rule.RuleBuilder().withCondition(n -> n % 5 == 0).withMapper(n -> "buzz").createRule())
-                .withRule(new Rule.RuleBuilder().withCondition(n -> n % 3 == 0).withMapper(n -> "fizz").createRule())
-                .withDefaultRule(new Rule.RuleBuilder().withCondition(n -> true).withMapper(n -> n.toString()).createRule())
-                .createConfigurableFizzBuzzer();
+                        new FizzBuzzRuleBuilder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build(),
+                        new FizzBuzzRuleBuilder().withCondition(n -> n % 15 == 0).withMapper(n -> "fizzbuzz").build()))
+                .withRule(new FizzBuzzRuleBuilder().withCondition(n -> n % 5 == 0).withMapper(n -> "buzz").build())
+                .withRule(new FizzBuzzRuleBuilder().withCondition(n -> n % 3 == 0).withMapper(n -> "fizz").build())
+                .withDefaultRule(new FizzBuzzRuleBuilder().withCondition(n -> true).withMapper(n -> n.toString()).build())
+                .build();
         String result = configurableFizzBuzzer.fizzBuzzerize(range1To20);
         assertThat(result).isEqualTo(ROBFRANK_FIZZBUZZ_EXPECTED_RESULT_WITH_RANGE_1_TO_20, result);
     }
@@ -28,10 +28,10 @@ class RuleBasedFizzBuzzerTest {
 
     @Test
     void whenRuleAcceptNumber_ThenStringIsReturned() {
-        Rule rule = new Rule.RuleBuilder()
+        FizzBuzzRule rule = new FizzBuzzRuleBuilder()
                 .withCondition(i -> i % 3 == 0)
                 .withMapper(n -> "foo")
-                .createRule();
+                .build();
         assertThat(rule.test(3)).isTrue();
         assertThat(rule.apply(3)).isEqualTo("foo");
 

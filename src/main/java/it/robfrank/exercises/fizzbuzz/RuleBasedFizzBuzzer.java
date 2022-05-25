@@ -5,10 +5,10 @@ import java.util.stream.Collectors;
 
 public class RuleBasedFizzBuzzer {
 
-    private final List<Rule> rules;
-    private final Rule defaultRule;
+    private final List<FizzBuzzRule> rules;
+    private final FizzBuzzRule defaultRule;
 
-    protected RuleBasedFizzBuzzer(List<Rule> rules, Rule defaultRule) {
+    protected RuleBasedFizzBuzzer(List<FizzBuzzRule> rules, FizzBuzzRule defaultRule) {
         this.rules = rules;
         this.defaultRule = defaultRule;
     }
@@ -19,10 +19,10 @@ public class RuleBasedFizzBuzzer {
                 .collect(Collectors.joining(" "));
     }
 
-    private String fizzBuzzerize(Integer number){
+    public String fizzBuzzerize(Integer number) {
         return rules.stream()
-                .filter(p-> p.test(number))
-                .map(f->f.apply(number))
+                .filter(p -> p.test(number))
+                .map(f -> f.apply(number))
                 .findFirst()
                 .orElse(defaultRule.apply(number));
     }
