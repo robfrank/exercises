@@ -1,12 +1,12 @@
 package it.robfrank.exercises.fizzbuzz;
 
-import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RobfrankFizzBuzz {
 
-    public String execute(List<Integer> numbers) {
-        return numbers.stream()
+    public String execute(Stream<Integer> numbers) {
+        return numbers
                 .map(this::execute)
                 .collect(Collectors.joining(" "));
     }

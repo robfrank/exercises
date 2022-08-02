@@ -2,6 +2,7 @@ package it.robfrank.exercises.fizzbuzz;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RuleBasedFizzBuzzer {
 
@@ -13,8 +14,8 @@ public class RuleBasedFizzBuzzer {
         this.defaultRule = defaultRule;
     }
 
-    public String fizzBuzzerize(List<Integer> numbers) {
-        return numbers.stream()
+    public String fizzBuzzerize(Stream<Integer> numbers) {
+        return numbers
                 .map(this::fizzBuzzerize)
                 .collect(Collectors.joining(" "));
     }

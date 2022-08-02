@@ -2,7 +2,11 @@ package it.robfrank.exercises.fizzbuzz;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static it.robfrank.exercises.fizzbuzz.FizzBuzzTest.ROBFRANK_FIZZBUZZ_EXPECTED_RESULT_WITH_RANGE_1_TO_20;
 import static it.robfrank.exercises.fizzbuzz.FizzBuzzTest.range1To20;
@@ -21,6 +25,19 @@ class RuleBasedFizzBuzzerTest {
                 .withRule(new FizzBuzzRuleBuilder().withCondition(n -> n % 3 == 0).withMapper(n -> "fizz").build())
                 .withDefaultRule(new FizzBuzzRuleBuilder().withCondition(n -> true).withMapper(n -> n.toString()).build())
                 .build();
+
+        Supplier<Integer> integerSupplier = new Supplier<Integer>() {
+
+            private Iterator<Integer> ints = IntStream.rangeClosed(1,20).iterator();
+
+            @Override
+            public Integer get() {
+                return ints.next();
+            }
+        };
+
+
+        integerSupplier.get();
         String result = configurableFizzBuzzer.fizzBuzzerize(range1To20);
         assertThat(result).isEqualTo(ROBFRANK_FIZZBUZZ_EXPECTED_RESULT_WITH_RANGE_1_TO_20, result);
     }
