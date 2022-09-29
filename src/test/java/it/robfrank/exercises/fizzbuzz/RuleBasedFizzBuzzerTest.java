@@ -9,10 +9,11 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static it.robfrank.exercises.fizzbuzz.FizzBuzzTest.ROBFRANK_FIZZBUZZ_EXPECTED_RESULT_WITH_RANGE_1_TO_20;
-import static it.robfrank.exercises.fizzbuzz.FizzBuzzTest.range1To20;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RuleBasedFizzBuzzerTest {
+
+    final Stream<Integer> range1To20 = IntStream.rangeClosed(1, 20).boxed();
 
     @Test
     void whenRunningConfigurableFizzBuzz_ThenReturnExpectedOutput() {
