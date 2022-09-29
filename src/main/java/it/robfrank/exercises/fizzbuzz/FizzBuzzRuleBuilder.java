@@ -18,7 +18,6 @@ public class FizzBuzzRuleBuilder {
     }
 
     public FizzBuzzRule build() {
-
         return new FizzBuzzRule(condition, mapper);
     }
 }

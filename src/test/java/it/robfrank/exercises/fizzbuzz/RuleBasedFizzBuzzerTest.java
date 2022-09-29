@@ -27,18 +27,6 @@ class RuleBasedFizzBuzzerTest {
                 .withDefaultRule(new FizzBuzzRuleBuilder().withCondition(n -> true).withMapper(n -> n.toString()).build())
                 .build();
 
-        Supplier<Integer> integerSupplier = new Supplier<Integer>() {
-
-            private Iterator<Integer> ints = IntStream.rangeClosed(1,20).iterator();
-
-            @Override
-            public Integer get() {
-                return ints.next();
-            }
-        };
-
-
-        integerSupplier.get();
         String result = configurableFizzBuzzer.fizzBuzzerize(range1To20);
         assertThat(result).isEqualTo(ROBFRANK_FIZZBUZZ_EXPECTED_RESULT_WITH_RANGE_1_TO_20, result);
     }
