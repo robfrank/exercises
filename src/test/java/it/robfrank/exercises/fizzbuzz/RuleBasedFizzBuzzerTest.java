@@ -16,13 +16,26 @@ class RuleBasedFizzBuzzerTest {
     @Test
     void whenRunningConfigurableFizzBuzz_ThenReturnExpectedOutput() {
 
-        RuleBasedFizzBuzzer configurableFizzBuzzer = new RuleBasedFizzBuzzerBuilder()
+        RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer.builder()
                 .withRules(List.of(
-                        FizzBuzzRule.builder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build(),
-                        FizzBuzzRule.builder().withCondition(n -> n % 15 == 0).withMapper(n -> "fizzbuzz").build()))
-                .withRule(FizzBuzzRule.builder().withCondition(n -> n % 5 == 0).withMapper(n -> "buzz").build())
-                .withRule(FizzBuzzRule.builder().withCondition(n -> n % 3 == 0).withMapper(n -> "fizz").build())
-                .withDefaultRule(FizzBuzzRule.builder().withCondition(n -> true).withMapper(n -> n.toString()).build())
+                        FizzBuzzRule.builder()
+                                .withCondition(n -> n.toString().contains("3"))
+                                .withMapper(n -> "robfrank")
+                                .build(),
+                        FizzBuzzRule.builder()
+                                .withCondition(n -> n % 15 == 0)
+                                .withMapper(n -> "fizzbuzz")
+                                .build()))
+                .withRule(FizzBuzzRule.builder()
+                        .withCondition(n -> n % 5 == 0)
+                        .withMapper(n -> "buzz")
+                        .build())
+                .withRule(FizzBuzzRule.builder().withCondition(n -> n % 3 == 0)
+                        .withMapper(n -> "fizz")
+                        .build())
+                .withDefaultRule(FizzBuzzRule.builder().withCondition(n -> true)
+                        .withMapper(n -> n.toString())
+                        .build())
                 .build();
 
         String result = configurableFizzBuzzer.fizzBuzzerize(range1To20);

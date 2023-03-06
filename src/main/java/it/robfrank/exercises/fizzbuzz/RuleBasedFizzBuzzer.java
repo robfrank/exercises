@@ -1,5 +1,6 @@
 package it.robfrank.exercises.fizzbuzz;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -9,7 +10,7 @@ public class RuleBasedFizzBuzzer {
     private final List<FizzBuzzRule> rules;
     private final FizzBuzzRule defaultRule;
 
-    protected RuleBasedFizzBuzzer(List<FizzBuzzRule> rules, FizzBuzzRule defaultRule) {
+    private RuleBasedFizzBuzzer(List<FizzBuzzRule> rules, FizzBuzzRule defaultRule) {
         this.rules = rules;
         this.defaultRule = defaultRule;
     }
@@ -28,5 +29,35 @@ public class RuleBasedFizzBuzzer {
                 .orElse(defaultRule.apply(number));
     }
 
+    public static RuleBasedFizzBuzzerBuilder builder() {
+        return new RuleBasedFizzBuzzerBuilder();
+    }
 
+
+    public static class RuleBasedFizzBuzzerBuilder {
+        private List<FizzBuzzRule> rules = new ArrayList<>();
+        private FizzBuzzRule defaultRule;
+
+        private RuleBasedFizzBuzzerBuilder(){
+
+        }
+
+        public RuleBasedFizzBuzzerBuilder withRules(List<FizzBuzzRule> rules) {
+            this.rules.addAll(rules);
+            return this;
+        }
+        public RuleBasedFizzBuzzerBuilder withRule(FizzBuzzRule rule) {
+            this.rules.add(rule);
+            return this;
+        }
+
+        public RuleBasedFizzBuzzer build() {
+            return new RuleBasedFizzBuzzer(rules, defaultRule);
+        }
+
+        public RuleBasedFizzBuzzerBuilder withDefaultRule(FizzBuzzRule defaultRule) {
+            this.defaultRule = defaultRule;
+            return this;
+        }
+    }
 }

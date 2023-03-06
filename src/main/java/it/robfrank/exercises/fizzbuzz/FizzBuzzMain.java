@@ -8,7 +8,7 @@ public class FizzBuzzMain {
 
         Integer range = Integer.valueOf(args[0]);
 
-        RuleBasedFizzBuzzer configurableFizzBuzzer = new RuleBasedFizzBuzzerBuilder()
+        RuleBasedFizzBuzzer configurableFizzBuzzer = new RuleBasedFizzBuzzer.RuleBasedFizzBuzzerBuilder()
                 .withRules(List.of(
                         FizzBuzzRule.builder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build(),
                         FizzBuzzRule.builder().withCondition(n -> n % 15 == 0).withMapper(n -> "fizzbuzz").build()))
