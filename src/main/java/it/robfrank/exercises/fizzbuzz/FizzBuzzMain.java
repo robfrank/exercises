@@ -8,6 +8,8 @@ public class FizzBuzzMain {
 
         Integer range = Integer.valueOf(args[0]);
 
+        System.out.println("range = " + range);
+
         RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer.builder()
                 .withRules(List.of(
                         FizzBuzzRule.builder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build(),
@@ -17,6 +19,8 @@ public class FizzBuzzMain {
                 .withDefaultRule(FizzBuzzRule.builder().withCondition(n -> true).withMapper(n -> n.toString()).build())
                 .build();
 
-        String s = configurableFizzBuzzer.fizzBuzzerize(IntStream.rangeClosed(1, range).boxed());
+        String fizzBuzzerized = configurableFizzBuzzer.fizzBuzzerize(IntStream.rangeClosed(1, range).boxed());
+
+        System.out.println("fizzBuzzrized = " + fizzBuzzerized);
     }
 }
