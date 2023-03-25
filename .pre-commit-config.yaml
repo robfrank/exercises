@@ -16,16 +16,20 @@ repos:
           - --allow-multiple-documents
       - id: check-json
       - id: check-xml
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.22.0
+    hooks:
+      - id: check-github-workflows
+      - id: check-dependabot
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.0.0-alpha.6
     hooks:
       - id: prettier
-        types: [ java ]
         additional_dependencies:
           - prettier@2.3.2
-          - prettier-plugin-java@1.3.0
+          - prettier-plugin-java@2.1.0
+          - prettier-plugin-xml
         args:
           - --write
           - --list-different
           - --ignore-unknown
-          - --plugin=prettier-plugin-java
