@@ -37,7 +37,7 @@ jobs:
           native-image-job-reports: 'true'
 
       - name: Test
-        run: mvn verify
+        run: mvn verify -Pnative
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
