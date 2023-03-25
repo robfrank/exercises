@@ -28,7 +28,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Set up GraalVM 19
-      - uses: graalvm/setup-graalvm@v1
+        uses: graalvm/setup-graalvm@v1
         with:
           version: '22.3.1'
           java-version: '19'
