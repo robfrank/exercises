@@ -1,13 +1,30 @@
 package it.robfrank.exercises.fizzbuzz;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.stream.IntStream;
 
-public class FizzBuzzMain {
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
+
+@Command(name = "fizzbuzz",
+        mixinStandardHelpOptions = true,
+        version = "the fizzvuzz",
+        description = "Fizzbuzzzzzz")
+public class FizzBuzzMain implements Callable<Integer> {
+
+    @Option(names = {"-r", "--range"}, description = "range number")
+    private Integer range = 20;
+
     public static void main(String[] args) {
+        int exitCode = new CommandLine(new FizzBuzzMain()).execute(args);
+//        System.exit(exitCode);
+    }
 
-        Integer range = Integer.valueOf(args[0]);
-
+    @Override
+    public Integer call() throws Exception {
         System.out.println("range = " + range);
 
         RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer.builder()
@@ -22,5 +39,6 @@ public class FizzBuzzMain {
         String fizzBuzzerized = configurableFizzBuzzer.fizzBuzzerize(IntStream.rangeClosed(1, range).boxed());
 
         System.out.println("fizzBuzzrized = " + fizzBuzzerized);
+        return 0;
     }
 }

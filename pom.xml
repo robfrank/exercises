@@ -20,6 +20,7 @@
     <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
     <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
     <native-image-maven-plugin.version>0.9.2</native-image-maven-plugin.version>
+    <picocli.version>4.7.1</picocli.version>
   </properties>
   <build>
     <plugins>
@@ -30,7 +31,17 @@
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
-          <compilerArgs>--enable-preview</compilerArgs>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>info.picocli</groupId>
+              <artifactId>picocli-codegen</artifactId>
+              <version>${picocli.version}</version>
+            </path>
+          </annotationProcessorPaths>
+          <compilerArgs>
+            <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
+            <arg>--enable-preview</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
       <plugin>
@@ -87,6 +98,11 @@
       <artifactId>assertj-core</artifactId>
       <version>${assertj.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>info.picocli</groupId>
+      <artifactId>picocli</artifactId>
+      <version>${picocli.version}</version>
     </dependency>
   </dependencies>
   <profiles>

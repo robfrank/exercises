@@ -31,7 +31,7 @@ class FizzBuzzMainTest {
 
     @Test
     public void testMain() {
-        FizzBuzzMain.main(new String[]{"20"});
+        FizzBuzzMain.main(new String[]{"-r","20"});
 
         assertThat(out.toString()).isEqualTo("""
                 range = 20
