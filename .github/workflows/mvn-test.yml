@@ -20,10 +20,10 @@ jobs:
       - uses: pre-commit/action@v3.0.0
 
   build:
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v3.5.0
