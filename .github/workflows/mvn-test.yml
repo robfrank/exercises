@@ -12,8 +12,12 @@ on:
 permissions: write-all
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+
     steps:
       - uses: actions/checkout@v3.5.0
       - uses: actions/setup-python@v4
@@ -50,6 +54,12 @@ jobs:
           list-suites: "failed"
           list-tests: "failed"
           reporter: java-junit
+
+      - name: Upload binary
+        uses: actions/upload-artifact@v2
+        with:
+          name: exercises-${{ matrix.os }}
+          path: ./target/exercises
 
       - name: Get coverage files
         if: ${{ github.actor != 'dependabot[bot]' }}
