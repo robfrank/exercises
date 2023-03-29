@@ -12,6 +12,13 @@ on:
 permissions: write-all
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.0
+      - uses: actions/setup-python@v4
+      - uses: pre-commit/action@v3.0.0
+
   build:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -19,10 +26,6 @@ jobs:
         os: [macos-latest, windows-latest, ubuntu-latest]
 
     steps:
-      - uses: actions/checkout@v3.5.0
-      - uses: actions/setup-python@v4
-      - uses: pre-commit/action@v3.0.0
-
       - name: Cache local Maven repository
         uses: actions/cache@v3
         with:
