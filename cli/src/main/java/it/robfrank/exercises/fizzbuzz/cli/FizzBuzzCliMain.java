@@ -1,25 +1,26 @@
-package it.robfrank.exercises.fizzbuzz;
+package it.robfrank.exercises.fizzbuzz.cli;
+
+import it.robfrank.exercises.fizzbuzz.FizzBuzzRule;
+import it.robfrank.exercises.fizzbuzz.RuleBasedFizzBuzzer;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.stream.IntStream;
 
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
-
 @Command(name = "fizzbuzz",
         mixinStandardHelpOptions = true,
         version = "the fizzvuzz",
         description = "Fizzbuzzzzzz")
-public class FizzBuzzMain implements Callable<Integer> {
+public class FizzBuzzCliMain implements Callable<Integer> {
 
     @Option(names = {"-r", "--range"}, description = "range number")
     private Integer range = 20;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new FizzBuzzMain()).execute(args);
+        int exitCode = new CommandLine(new FizzBuzzCliMain()).execute(args);
 //        System.exit(exitCode);
     }
 

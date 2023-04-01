@@ -1,6 +1,5 @@
-package it.robfrank.exercises.fizzbuzz;
+package it.robfrank.exercises.fizzbuzz.cli;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,9 +10,8 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-class FizzBuzzMainTest {
+class FizzBuzzCliMainTest {
 
     private ByteArrayOutputStream out;
 
@@ -31,11 +29,11 @@ class FizzBuzzMainTest {
 
     @Test
     public void testMain() {
-        FizzBuzzMain.main(new String[]{"20"});
+        FizzBuzzCliMain.main(new String[]{"-r", "20"});
 
-        assertThat(out.toString()).isEqualTo("""
+        assertThat(out.toString().trim()).containsIgnoringNewLines("""
                 range = 20
                 fizzBuzzrized = 1 2 robfrank 4 buzz fizz 7 8 fizz buzz 11 fizz robfrank 14 fizzbuzz 16 17 fizz 19 buzz
-                """);
+                """.trim());
     }
 }
