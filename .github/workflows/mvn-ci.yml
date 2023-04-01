@@ -66,7 +66,7 @@ jobs:
           path: ./cli/target/exercises-cli
 
       - name: Get coverage files
-        if: ${{ github.actor != 'dependabot[bot]' || runner.os == 'Linux' }}
+        if: ${{ github.actor != 'dependabot[bot]' && runner.os == 'Linux' }}
         run: |
           echo ::set-output name=COVERAGE_FILES::$(find **/jacoco*.xml -printf '%p,')
         id: coverage-files-generator
