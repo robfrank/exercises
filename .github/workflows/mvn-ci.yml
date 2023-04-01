@@ -1,4 +1,4 @@
-name: CI - test and coverage
+name: CI
 
 on:
   workflow_dispatch:
@@ -62,11 +62,11 @@ jobs:
       - name: Upload binary
         uses: actions/upload-artifact@v2
         with:
-          name: exercises-${{ matrix.os }}
-          path: ./target/exercises
+          name: exercises-${{ runner.arch }}
+          path: ./cli/target/exercises-cli
 
       - name: Get coverage files
-        if: ${{ github.actor != 'dependabot[bot]' }}
+        if: ${{ github.actor != 'dependabot[bot]' || runner.os == 'Linux' }}
         run: |
           echo ::set-output name=COVERAGE_FILES::$(find **/jacoco*.xml -printf '%p,')
         id: coverage-files-generator
