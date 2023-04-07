@@ -24,6 +24,7 @@ jobs:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
+    needs: check
 
     steps:
       - uses: actions/checkout@v3.5.0
@@ -72,7 +73,7 @@ jobs:
         id: coverage-files-generator
 
       - name: Codacy coverage reporter
-        if: ${{ github.actor != 'dependabot[bot]' }}
+        if: ${{ github.actor != 'dependabot[bot]'  && runner.os == 'Linux' }}
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
