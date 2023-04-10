@@ -22,7 +22,7 @@
     <native-image-maven-plugin.version>
       0.9.20
     </native-image-maven-plugin.version>
-    <picocli.version>4.7.1</picocli.version>
+    <picocli.version>4.7.2</picocli.version>
   </properties>
   <modules>
     <module>core</module>
