@@ -49,7 +49,7 @@ class RuleBasedFizzBuzzerTest {
                         .withMapper(n -> "fizz")
                         .build())
                 .withDefaultRule(FizzBuzzRule.builder().withCondition(n -> true)
-                        .withMapper(n -> n.toString())
+                        .withMapper(Object::toString)
                         .build())
                 .build();
 

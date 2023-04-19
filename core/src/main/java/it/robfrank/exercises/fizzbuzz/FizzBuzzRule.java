@@ -18,7 +18,7 @@ package it.robfrank.exercises.fizzbuzz;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class FizzBuzzRule implements Predicate<Integer>, Function<Integer, String> {
+public final class FizzBuzzRule implements Predicate<Integer>, Function<Integer, String> {
 
     private final Predicate<Integer> condition;
     private final Function<Integer, String> mapper;
@@ -43,7 +43,7 @@ public class FizzBuzzRule implements Predicate<Integer>, Function<Integer, Strin
         return new FizzBuzzRuleBuilder();
     }
 
-    public static class FizzBuzzRuleBuilder {
+    public static final class FizzBuzzRuleBuilder {
         private Predicate<Integer> condition;
         private Function<Integer, String> mapper;
 

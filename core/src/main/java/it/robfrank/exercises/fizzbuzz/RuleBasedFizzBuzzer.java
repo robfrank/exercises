@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class RuleBasedFizzBuzzer {
+public final class RuleBasedFizzBuzzer {
 
     private final List<FizzBuzzRule> rules;
     private final FizzBuzzRule defaultRule;
@@ -49,11 +49,11 @@ public class RuleBasedFizzBuzzer {
     }
 
 
-    public static class RuleBasedFizzBuzzerBuilder {
-        private List<FizzBuzzRule> rules = new ArrayList<>();
+    public static final class RuleBasedFizzBuzzerBuilder {
+        private final List<FizzBuzzRule> rules = new ArrayList<>();
         private FizzBuzzRule defaultRule;
 
-        private RuleBasedFizzBuzzerBuilder(){
+        private RuleBasedFizzBuzzerBuilder() {
 
         }
 

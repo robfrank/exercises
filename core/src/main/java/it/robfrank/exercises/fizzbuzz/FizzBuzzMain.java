@@ -16,7 +16,6 @@
 package it.robfrank.exercises.fizzbuzz;
 
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.stream.IntStream;
 
 public class FizzBuzzMain  {
@@ -32,7 +31,7 @@ public class FizzBuzzMain  {
                         FizzBuzzRule.builder().withCondition(n -> n % 15 == 0).withMapper(n -> "fizzbuzz").build()))
                 .withRule(FizzBuzzRule.builder().withCondition(n -> n % 5 == 0).withMapper(n -> "buzz").build())
                 .withRule(FizzBuzzRule.builder().withCondition(n -> n % 3 == 0).withMapper(n -> "fizz").build())
-                .withDefaultRule(FizzBuzzRule.builder().withCondition(n -> true).withMapper(n -> n.toString()).build())
+                .withDefaultRule(FizzBuzzRule.builder().withCondition(n -> true).withMapper(Object::toString).build())
                 .build();
 
         String fizzBuzzerized = configurableFizzBuzzer.fizzBuzzerize(IntStream.rangeClosed(1, range).boxed());
