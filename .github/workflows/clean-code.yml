@@ -42,16 +42,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: configure git username
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email noreply@github.com
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: create branch
         run: |
           git checkout -b improvement/cleancode
           git commit -m "clean the code" .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: configure git username
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email noreply@github.com
+
       - name: create pull request
         run: gh pr create -B main  --title 'Clean code ' --body 'Created by Github action'
         env:
