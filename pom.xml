@@ -20,7 +20,7 @@
     <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
     <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
     <native-image-maven-plugin.version>0.9.21</native-image-maven-plugin.version>
-    <picocli.version>4.7.2</picocli.version>
+    <picocli.version>4.7.3</picocli.version>
     <rewrite-maven-plugin.version>4.44.0</rewrite-maven-plugin.version>
   </properties>
   <modules>
