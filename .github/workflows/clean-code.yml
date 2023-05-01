@@ -1,0 +1,51 @@
+name: CleanCode
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions: write-all
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.0
+      - uses: actions/setup-python@v4
+      - uses: pre-commit/action@v3.0.0
+
+  build:
+    runs-on: ubuntu-latest
+    needs: check
+
+    steps:
+      - uses: actions/checkout@v3.5.0
+      - name: Cache local Maven repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+
+      - name: Set up GraalVM 19
+        uses: graalvm/setup-graalvm@v1
+        with:
+          version: "22.3.1"
+          java-version: "19"
+          components: "native-image"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          native-image-job-reports: "true"
+
+      - name: OpenRewrite
+        run: mvn rewrite:run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: create branch
+        run: |
+          git checkout -b improvement/cleancode
+          git commit -m "clean the code" .
+          gh pr create -B main  --title 'Clean code ' --body 'Created by Github action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
