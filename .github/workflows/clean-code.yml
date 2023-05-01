@@ -60,6 +60,7 @@ jobs:
         if: ${{ env.create_pr == 'true' }}
         run: |
           git commit -m "clean the code" .
+          git push
           gh pr create -B main  --title 'Clean code ' --body 'Created by Github action'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
