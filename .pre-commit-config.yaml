@@ -17,9 +17,8 @@ repos:
       - id: check-json
       - id: check-xml
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.22.0
+    rev: 0.23.2
     hooks:
-      #      - id: check-github-workflows
       - id: check-dependabot
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.0.0-alpha.6
