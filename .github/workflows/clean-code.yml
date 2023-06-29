@@ -51,7 +51,7 @@ jobs:
 
       - name: create branch
         run: |
-          git checkout -b improvement/cleancode
+          git checkout -b improvement/cleancode-
           git commit -a --dry-run &&  echo "create_pr=true" >> "$GITHUB_ENV" || echo "create_pr=false" >> "$GITHUB_ENV"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -60,7 +60,7 @@ jobs:
         if: ${{ env.create_pr == 'true' }}
         run: |
           git commit -m "clean the code" .
-          git push --set-upstream origin improvement/cleancode
+          git push --set-upstream origin improvement/cleancode-${{ github.run_id }}
           gh pr create -B main  --title 'Clean code ' --body 'Created by Github action'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

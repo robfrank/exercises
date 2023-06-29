@@ -24,6 +24,9 @@
     </native-image-maven-plugin.version>
     <picocli.version>4.7.3</picocli.version>
     <rewrite-maven-plugin.version>4.45.0</rewrite-maven-plugin.version>
+    <archunit-junit5.version>1.0.1</archunit-junit5.version>
+    <commons-logging.version>1.2</commons-logging.version>
+    <slf4j-api.version>2.0.7</slf4j-api.version>
   </properties>
   <modules>
     <module>core</module>
@@ -114,6 +117,27 @@
       <artifactId>assertj-core</artifactId>
       <version>${assertj.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.tngtech.archunit</groupId>
+      <artifactId>archunit-junit5</artifactId>
+      <version>${archunit-junit5.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>${commons-logging.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j-api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j-api.version}</version>
     </dependency>
   </dependencies>
 </project>

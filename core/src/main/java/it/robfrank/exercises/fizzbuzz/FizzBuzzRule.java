@@ -17,9 +17,12 @@ package it.robfrank.exercises.fizzbuzz;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 public final class FizzBuzzRule implements Predicate<Integer>, Function<Integer, String> {
 
+    //    private static Logger logger = LogManager.getLogManager().getLogger(FizzBuzzRule.class.getName());
     private final Predicate<Integer> condition;
     private final Function<Integer, String> mapper;
 
@@ -27,7 +30,6 @@ public final class FizzBuzzRule implements Predicate<Integer>, Function<Integer,
         this.condition = condition;
         this.mapper = mapper;
     }
-
 
     @Override
     public boolean test(Integer number) {
@@ -44,11 +46,11 @@ public final class FizzBuzzRule implements Predicate<Integer>, Function<Integer,
     }
 
     public static final class FizzBuzzRuleBuilder {
+
         private Predicate<Integer> condition;
         private Function<Integer, String> mapper;
 
-        private FizzBuzzRuleBuilder() {
-        }
+        private FizzBuzzRuleBuilder() {}
 
         public FizzBuzzRuleBuilder withCondition(Predicate<Integer> condition) {
             this.condition = condition;
