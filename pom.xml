@@ -81,6 +81,9 @@
         <configuration>
           <activeRecipes>
             <recipe>it.robfrank.GeneralCleanup</recipe>
+            <recipe>
+              org.openrewrite.java.logging.slf4j.Slf4jBestPractices
+            </recipe>
           </activeRecipes>
         </configuration>
       </plugin>

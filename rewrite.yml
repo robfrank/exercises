@@ -4,3 +4,17 @@ name: it.robfrank.GeneralCleanup
 recipeList:
   - org.openrewrite.java.cleanup.Cleanup
   - org.openrewrite.java.RemoveUnusedImports
+  - org.openrewrite.java.OrderImports
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.java.logging.slf4j.Slf4jBestPractices
+displayName: SLF4J best practices
+description: Applies best practices to logging with SLF4J.
+tags:
+  - slf4j
+  - logging
+recipeList:
+  - org.openrewrite.java.logging.slf4j.LoggersNamedForEnclosingClass
+  - org.openrewrite.java.logging.slf4j.ParameterizedLogging
+  - org.openrewrite.java.logging.slf4j.Slf4jLogShouldBeConstant
+  - org.openrewrite.java.logging.slf4j.CompleteExceptionLogging
