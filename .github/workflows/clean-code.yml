@@ -51,7 +51,7 @@ jobs:
 
       - name: create branch
         run: |
-          git checkout -b improvement/cleancode-
+          git checkout -b improvement/cleancode-${{ github.run_id }}
           git commit -a --dry-run &&  echo "create_pr=true" >> "$GITHUB_ENV" || echo "create_pr=false" >> "$GITHUB_ENV"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
