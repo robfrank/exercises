@@ -27,7 +27,7 @@ import picocli.CommandLine.Option;
 @Command(name = "fizzbuzz", mixinStandardHelpOptions = true, version = "the fizzvuzz", description = "Fizzbuzzzzzz")
 public class FizzBuzzCliMain implements Callable<Integer> {
 
-    @Option(names = { "-r", "--range" }, description = "range number")
+    @Option(names = {"-r", "--range"}, description = "range number")
     private Integer range = 20;
 
     public static void main(String[] args) {
