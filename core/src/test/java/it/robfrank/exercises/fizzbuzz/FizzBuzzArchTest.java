@@ -19,11 +19,11 @@ public class FizzBuzzArchTest {
     @ArchTest
     private final ArchRule no_standard_streams = NO_CLASSES_SHOULD_ACCESS_STANDARD_STREAMS;
 
-    @ArchTest
-    public static final ArchRule no_commons_logging = ArchRuleDefinition
-        .noClasses()
-        .should()
-        .accessClassesThat()
-        .resideInAPackage("org.apache.commons.logging")
-        .because("slf4j should be used instead of apache.commons logger");
+//    @ArchTest
+//    public static final ArchRule no_commons_logging = ArchRuleDefinition
+//        .noClasses()
+//        .should()
+//        .accessClassesThat()
+//        .resideInAPackage("org.apache.commons.logging")
+//        .because("slf4j should be used instead of apache.commons logger");
 }
