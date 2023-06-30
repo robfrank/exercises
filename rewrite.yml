@@ -2,9 +2,12 @@
 type: specs.openrewrite.org/v1beta/recipe
 name: it.robfrank.GeneralCleanup
 recipeList:
-  - org.openrewrite.java.cleanup.Cleanup
+  #  - org.openrewrite.java.cleanup.Cleanup
   - org.openrewrite.java.RemoveUnusedImports
   - org.openrewrite.java.OrderImports
+  - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
+  - org.openrewrite.java.cleanup.SimplifyBooleanReturn
+  - org.openrewrite.java.cleanup.SimplifyBooleanExpression
 #---
 #type: specs.openrewrite.org/v1beta/recipe
 #name: org.openrewrite.java.logging.slf4j.Slf4jBestPractices

@@ -19,7 +19,9 @@
     <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
     <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
     <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
-    <native-image-maven-plugin.version>0.9.23</native-image-maven-plugin.version>
+    <native-image-maven-plugin.version>
+      0.9.23
+    </native-image-maven-plugin.version>
     <picocli.version>4.7.4</picocli.version>
     <rewrite-maven-plugin.version>5.2.5</rewrite-maven-plugin.version>
     <archunit-junit5.version>1.0.1</archunit-junit5.version>
@@ -82,18 +84,8 @@
         <configuration>
           <activeRecipes>
             <recipe>it.robfrank.GeneralCleanup</recipe>
-            <recipe>
-              org.openrewrite.java.logging.slf4j.Slf4jBestPractices
-            </recipe>
           </activeRecipes>
         </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.openrewrite.recipe</groupId>
-            <artifactId>rewrite-logging-frameworks</artifactId>
-            <version>${rewrite-logging-frameworks.version}</version>
-          </dependency>
-        </dependencies>
       </plugin>
     </plugins>
     <pluginManagement>
