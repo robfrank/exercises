@@ -23,7 +23,7 @@
       0.9.21
     </native-image-maven-plugin.version>
     <picocli.version>4.7.4</picocli.version>
-    <rewrite-maven-plugin.version>4.45.0</rewrite-maven-plugin.version>
+    <rewrite-maven-plugin.version>5.2.5</rewrite-maven-plugin.version>
     <archunit-junit5.version>1.0.1</archunit-junit5.version>
     <commons-logging.version>1.2</commons-logging.version>
     <slf4j-api.version>2.0.7</slf4j-api.version>
