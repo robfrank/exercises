@@ -27,6 +27,9 @@
     <archunit-junit5.version>1.0.1</archunit-junit5.version>
     <commons-logging.version>1.2</commons-logging.version>
     <slf4j-api.version>2.0.7</slf4j-api.version>
+    <rewrite-logging-frameworks.version>
+      2.0.1
+    </rewrite-logging-frameworks.version>
   </properties>
   <modules>
     <module>core</module>
@@ -86,6 +89,13 @@
             </recipe>
           </activeRecipes>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.openrewrite.recipe</groupId>
+            <artifactId>rewrite-logging-frameworks</artifactId>
+            <version>${rewrite-logging-frameworks.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
     <pluginManagement>
