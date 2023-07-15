@@ -36,7 +36,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Set up GraalVM 19
+      - name: Set up GraalVM 20
         uses: graalvm/setup-graalvm@v1
         with:
           distribution: "graalvm"

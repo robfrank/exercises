@@ -28,7 +28,7 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
 
-      - name: Set up GraalVM 19
+      - name: Set up GraalVM 20
         uses: graalvm/setup-graalvm@v1
         with:
           distribution: "graalvm"
