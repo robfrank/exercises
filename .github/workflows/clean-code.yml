@@ -31,9 +31,8 @@ jobs:
       - name: Set up GraalVM 19
         uses: graalvm/setup-graalvm@v1
         with:
-          version: "22.3.1"
-          java-version: "19"
-          components: "native-image"
+          distribution: "graalvm"
+          java-version: "20"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: "true"
 
