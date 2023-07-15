@@ -61,6 +61,7 @@ public final class RuleBasedFizzBuzzer {
             this.rules.addAll(rules);
             return this;
         }
+
         public RuleBasedFizzBuzzerBuilder withRule(FizzBuzzRule rule) {
             this.rules.add(rule);
             return this;
