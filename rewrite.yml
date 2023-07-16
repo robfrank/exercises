@@ -2,7 +2,7 @@
 type: specs.openrewrite.org/v1beta/recipe
 name: it.robfrank.GeneralCleanup
 recipeList:
-  #  - org.openrewrite.java.cleanup.Cleanup
+  - org.openrewrite.java.cleanup.Cleanup
   - org.openrewrite.java.RemoveUnusedImports
   - org.openrewrite.java.OrderImports
   - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
