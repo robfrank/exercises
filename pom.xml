@@ -13,7 +13,7 @@
     <maven.compiler.source>20</maven.compiler.source>
     <maven.compiler.target>20</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>5.9.3</junit.version>
+    <junit.version>5.10.0</junit.version>
     <assertj.version>3.24.2</assertj.version>
     <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
     <picocli.version>4.7.4</picocli.version>
