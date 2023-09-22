@@ -28,11 +28,11 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
 
-      - name: Set up GraalVM 20
+      - name: Set up GraalVM 21
         uses: graalvm/setup-graalvm@v1
         with:
           distribution: "graalvm"
-          java-version: "20"
+          java-version: "21"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: "true"
 

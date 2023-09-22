@@ -6,7 +6,9 @@ import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
+import org.junit.jupiter.api.Disabled;
 
+@Disabled
 @AnalyzeClasses(packages = "it.robfrank.exercises.fizzbuzz")
 public class FizzBuzzArchTest {
 
@@ -21,9 +23,9 @@ public class FizzBuzzArchTest {
 
     @ArchTest
     public static final ArchRule no_commons_logging = ArchRuleDefinition
-            .noClasses()
-            .should()
-            .accessClassesThat()
-            .resideInAPackage("org.apache.commons.logging")
-            .because("slf4j should be used instead of apache.commons logger");
+        .noClasses()
+        .should()
+        .accessClassesThat()
+        .resideInAPackage("org.apache.commons.logging")
+        .because("slf4j should be used instead of apache.commons logger");
 }

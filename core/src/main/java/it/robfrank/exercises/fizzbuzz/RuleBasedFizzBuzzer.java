@@ -31,31 +31,23 @@ public final class RuleBasedFizzBuzzer {
     }
 
     public String fizzBuzzerize(Stream<Integer> numbers) {
-        return numbers
-                .map(this::fizzBuzzerize)
-                .collect(Collectors.joining(" "));
+        return numbers.map(this::fizzBuzzerize).collect(Collectors.joining(" "));
     }
 
     public String fizzBuzzerize(Integer number) {
-        return rules.stream()
-                .filter(p -> p.test(number))
-                .map(f -> f.apply(number))
-                .findFirst()
-                .orElse(defaultRule.apply(number));
+        return rules.stream().filter(p -> p.test(number)).map(f -> f.apply(number)).findFirst().orElse(defaultRule.apply(number));
     }
 
     public static RuleBasedFizzBuzzerBuilder builder() {
         return new RuleBasedFizzBuzzerBuilder();
     }
 
-
     public static final class RuleBasedFizzBuzzerBuilder {
+
         private final List<FizzBuzzRule> rules = new ArrayList<>();
         private FizzBuzzRule defaultRule;
 
-        private RuleBasedFizzBuzzerBuilder() {
-
-        }
+        private RuleBasedFizzBuzzerBuilder() {}
 
         public RuleBasedFizzBuzzerBuilder withRules(List<FizzBuzzRule> rules) {
             this.rules.addAll(rules);
