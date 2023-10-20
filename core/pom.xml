@@ -24,13 +24,13 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>it.robfrank.exercises.fizzbuzz.FizzBuzzMain</mainClass>
+                      <mainClass>it.robfrank.exercises.fizzbuzz.FizzBuzzMain</mainClass>
             </manifest>
-          </archive>
+                </archive>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
+              </plugin>
+              <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <enablePreview>true</enablePreview>
