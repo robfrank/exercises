@@ -17,10 +17,12 @@ package it.robfrank.exercises.fizzbuzz;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 public final class FizzBuzzRule implements Predicate<Integer>, Function<Integer, String> {
 
-    //    private static Logger logger = LogManager.getLogManager().getLogger(FizzBuzzRule.class.getName());
+//        private static Logger logger = LogManager.getLogManager().getLogger(FizzBuzzRule.class.getName());
     private final Predicate<Integer> condition;
     private final Function<Integer, String> mapper;
 
