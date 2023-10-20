@@ -28,13 +28,13 @@ public class FizzBuzzMain {
 
 //        static Logger logger = LogManager.getLogManager().getLogger(FizzBuzzMain.class.getName());
 
-//        static Log log = LogFactory.getLog(FizzBuzzMain.class);
+        static Log log = LogFactory.getLog(FizzBuzzMain.class);
 
     static Logger slf4jLogger = LoggerFactory.getLogger(FizzBuzzMain.class);
 
     public static void main(String[] args) {
         Integer range = Integer.valueOf(args[0]);
-        //        System.out.println("range = " + range);
+                System.out.println("range = " + range);
         slf4jLogger.info("range = " + range);
 
         RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer
