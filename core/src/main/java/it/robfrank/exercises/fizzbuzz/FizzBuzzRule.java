@@ -17,8 +17,6 @@ package it.robfrank.exercises.fizzbuzz;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 public final class FizzBuzzRule implements Predicate<Integer>, Function<Integer, String> {
 
