@@ -28,7 +28,9 @@
     <maven-failsafe-plugin.version>3.2.2</maven-failsafe-plugin.version>
     <rewrite-maven-plugin.version>5.10.0</rewrite-maven-plugin.version>
     <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
-    <native-image-maven-plugin.version>0.9.28</native-image-maven-plugin.version>
+    <native-image-maven-plugin.version>
+      0.9.28
+    </native-image-maven-plugin.version>
   </properties>
   <modules>
     <module>core</module>
