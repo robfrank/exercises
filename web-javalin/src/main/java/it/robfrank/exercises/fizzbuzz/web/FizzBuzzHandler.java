@@ -4,10 +4,9 @@ import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import it.robfrank.exercises.fizzbuzz.FizzBuzzRule;
 import it.robfrank.exercises.fizzbuzz.RuleBasedFizzBuzzer;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 import java.util.stream.IntStream;
+import org.jetbrains.annotations.NotNull;
 
 public class FizzBuzzHandler implements Handler {
 

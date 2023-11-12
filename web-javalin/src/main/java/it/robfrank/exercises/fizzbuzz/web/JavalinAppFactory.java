@@ -1,9 +1,9 @@
 package it.robfrank.exercises.fizzbuzz.web;
 
-import io.javalin.Javalin;
-
 import static io.javalin.apibuilder.ApiBuilder.get;
 import static io.javalin.apibuilder.ApiBuilder.path;
+
+import io.javalin.Javalin;
 
 public class JavalinAppFactory {
     private final Javalin app;

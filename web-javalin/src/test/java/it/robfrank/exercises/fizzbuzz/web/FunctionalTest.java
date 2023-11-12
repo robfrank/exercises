@@ -1,12 +1,12 @@
 package it.robfrank.exercises.fizzbuzz.web;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 import io.javalin.Javalin;
 import io.javalin.testtools.JavalinTest;
 import okhttp3.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class FunctionalTest {
 
