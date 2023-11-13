@@ -24,7 +24,7 @@
       2.0.1
     </rewrite-logging-frameworks.version>
     <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-    <maven-surefire-plugin.version>3.2.1</maven-surefire-plugin.version>
+    <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
     <maven-failsafe-plugin.version>3.2.2</maven-failsafe-plugin.version>
     <rewrite-maven-plugin.version>5.10.0</rewrite-maven-plugin.version>
     <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
