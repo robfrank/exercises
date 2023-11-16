@@ -20,17 +20,13 @@
     <archunit-junit5.version>1.2.0</archunit-junit5.version>
     <commons-logging.version>1.2</commons-logging.version>
     <slf4j-api.version>2.0.9</slf4j-api.version>
-    <rewrite-logging-frameworks.version>
-      2.0.1
-    </rewrite-logging-frameworks.version>
+    <rewrite-logging-frameworks.version>2.0.1</rewrite-logging-frameworks.version>
     <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
     <maven-surefire-plugin.version>3.2.1</maven-surefire-plugin.version>
     <maven-failsafe-plugin.version>3.2.2</maven-failsafe-plugin.version>
     <rewrite-maven-plugin.version>5.10.0</rewrite-maven-plugin.version>
     <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
-    <native-image-maven-plugin.version>
-      0.9.28
-    </native-image-maven-plugin.version>
+    <native-image-maven-plugin.version>0.9.28</native-image-maven-plugin.version>
   </properties>
   <modules>
     <module>core</module>
@@ -107,9 +103,7 @@
             <archive>
               <manifest>
                 <addClasspath>true</addClasspath>
-                <mainClass>
-                  it.robfrank.exercises.fizzbuzz.FizzBuzzMain
-                </mainClass>
+                <mainClass>it.robfrank.exercises.fizzbuzz.FizzBuzzMain</mainClass>
               </manifest>
             </archive>
           </configuration>
@@ -118,6 +112,7 @@
           <groupId>org.graalvm.buildtools</groupId>
           <artifactId>native-maven-plugin</artifactId>
           <version>${native-image-maven-plugin.version}</version>
+          <extensions>true</extensions>
           <executions>
             <execution>
               <id>build-native</id>
@@ -128,12 +123,13 @@
             </execution>
           </executions>
           <configuration>
+            <metadataRepository>
+              <enabled>true</enabled>
+            </metadataRepository>
             <fallback>false</fallback>
             <buildArgs combine.children="append">
               <arg>--enable-preview</arg>
-              <arg>
-                -H:DashboardDump=fortune -H:+DashboardAll --enable-url-protocols=http
-              </arg>
+              <arg>-H:DashboardDump=fortune -H:+DashboardAll --enable-url-protocols=http</arg>
             </buildArgs>
             <agent>
               <enabled>true</enabled>

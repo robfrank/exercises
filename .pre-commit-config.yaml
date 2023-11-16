@@ -17,7 +17,7 @@ repos:
       - id: check-json
       - id: check-xml
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.27.0
+    rev: 0.27.1
     hooks:
       - id: check-dependabot
   - repo: https://github.com/pre-commit/mirrors-prettier
@@ -26,7 +26,7 @@ repos:
       - id: prettier
         additional_dependencies:
           - prettier@2.3.2
-          #          - prettier-plugin-java@2.3.1
+          - prettier-plugin-java@2.4.0
           - prettier-plugin-xml
         args:
           - --write

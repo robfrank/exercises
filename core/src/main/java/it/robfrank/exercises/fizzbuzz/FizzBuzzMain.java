@@ -22,9 +22,9 @@ import org.slf4j.LoggerFactory;
 
 public class FizzBuzzMain {
 
-//        static Logger logger = LogManager.getLogManager().getLogger(FizzBuzzMain.class.getName());
+    //        static Logger logger = LogManager.getLogManager().getLogger(FizzBuzzMain.class.getName());
 
-//        static Log log = LogFactory.getLog(FizzBuzzMain.class);
+    //        static Log log = LogFactory.getLog(FizzBuzzMain.class);
 
     static Logger slf4jLogger = LoggerFactory.getLogger(FizzBuzzMain.class);
 

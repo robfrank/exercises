@@ -39,9 +39,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>
-                it.robfrank.exercises.fizzbuzz.cli.FizzBuzzCliMain
-              </mainClass>
+              <mainClass>it.robfrank.exercises.fizzbuzz.cli.FizzBuzzCliMain</mainClass>
             </manifest>
           </archive>
         </configuration>

@@ -21,9 +21,7 @@ import java.util.stream.Stream;
 public class FizzBuzz {
 
     public String execute(Stream<Integer> numbers) {
-        return numbers
-                .map(this::execute)
-                .collect(Collectors.joining(" "));
+        return numbers.map(this::execute).collect(Collectors.joining(" "));
     }
 
     private String execute(Integer number) {
@@ -33,8 +31,5 @@ public class FizzBuzz {
             case Integer n when (n % 5 == 0) -> "buzz";
             default -> number.toString();
         };
-
     }
-
-
 }
