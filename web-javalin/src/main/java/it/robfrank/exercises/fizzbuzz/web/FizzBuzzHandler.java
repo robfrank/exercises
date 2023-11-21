@@ -16,12 +16,8 @@ public class FizzBuzzHandler implements Handler {
         this.fizzBuzzer =
             RuleBasedFizzBuzzer
                 .builder()
-                .withRules(
-                    List.of(
-                        FizzBuzzRule.builder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build(),
-                        FizzBuzzRule.builder().withCondition(n -> n % 15 == 0).withMapper(n -> "fizzbuzz").build()
-                    )
-                )
+                .withRule(FizzBuzzRule.builder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build())
+                .withRule(FizzBuzzRule.builder().withCondition(n -> n % 15 == 0).withMapper(n -> "fizzbuzz").build())
                 .withRule(FizzBuzzRule.builder().withCondition(n -> n % 5 == 0).withMapper(n -> "buzz").build())
                 .withRule(FizzBuzzRule.builder().withCondition(n -> n % 3 == 0).withMapper(n -> "fizz").build())
                 .withDefaultRule(FizzBuzzRule.builder().withCondition(n -> true).withMapper(Object::toString).build())
@@ -30,7 +26,8 @@ public class FizzBuzzHandler implements Handler {
 
     @Override
     public void handle(@NotNull Context context) throws Exception {
-        int range = Integer.parseInt(context.pathParam("range"));
-        context.result(fizzBuzzer.fizzBuzzerize(IntStream.rangeClosed(1, range).boxed()));
+        var range = Integer.parseInt(context.pathParam("range"));
+        var fizzed = fizzBuzzer.fizzBuzzerize(IntStream.rangeClosed(1, range).boxed());
+        context.result(fizzed);
     }
 }

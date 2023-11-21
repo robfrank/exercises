@@ -12,21 +12,13 @@ public class JavalinAppFactory {
     public JavalinAppFactory() {
         var handler = new FizzBuzzHandler();
 
-        app = Javalin.create(/*config*/).get("/", ctx -> ctx.result("Hello World"));
-
-        app.routes(() -> {
-            path(
-                "fizzbuzz",
-                () -> {
-                    path(
-                        "{range}",
-                        () -> {
-                            get(handler);
-                        }
-                    );
-                }
-            );
-        });
+        app =
+            Javalin
+                .create(/*config*/)
+                .routes(() -> {
+                    get("/", ctx -> ctx.result("Hello World"));
+                    path("/fizzbuzz", () -> path("{range}", () -> get(handler)));
+                });
     }
 
     public Javalin getApp() {
