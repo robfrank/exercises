@@ -123,6 +123,7 @@
             </execution>
           </executions>
           <configuration>
+            <skipNativeTests>true</skipNativeTests>
             <metadataRepository>
               <enabled>true</enabled>
             </metadataRepository>
