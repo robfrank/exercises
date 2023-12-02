@@ -67,7 +67,7 @@ jobs:
 
       - name: Get coverage files
         if: ${{ github.actor != 'dependabot[bot]' && runner.os == 'Linux' }}
-        run: echo "COVERAGE_FILES=$(find . -path **/jacoco*.xml -printf '%p,')" >> $GITHUB_OUTPUT
+        run: echo "COVERAGE_FILES=$(find . -path **/jacoco*.xml -printf '%p,')" >> "$GITHUB_OUTPUT"
         id: coverage-files-generator
 
       - name: Codacy coverage reporter
