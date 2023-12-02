@@ -66,14 +66,14 @@ jobs:
           path: ./cli/target/exercises-cli
 
       - name: Get coverage files
+        id: coverage-files-generator
         if: ${{ github.actor != 'dependabot[bot]' && runner.os == 'Linux' }}
         run: echo "COVERAGE_FILES=$(find . -path **/jacoco*.xml -printf '%p,')" >> "$GITHUB_OUTPUT"
-        id: coverage-files-generator
 
       - name: Debug
-        run: echo "files $files"
+        run: echo "files $COVERAGE_FILES"
         env:
-          files: ${{ steps.coverage-files-generator.outputs.COVERAGE_FILES }}
+          COVERAGE_FILES: ${{ steps.coverage-files-generator.outputs.COVERAGE_FILES }}
 
       - name: Codacy coverage reporter
         if: ${{ github.actor != 'dependabot[bot]'  && runner.os == 'Linux' }}
