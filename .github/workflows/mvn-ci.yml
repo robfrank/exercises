@@ -65,9 +65,6 @@ jobs:
           name: exercises-${{ matrix.os }}-${{ runner.arch }}
           path: ./cli/target/exercises-cli
 
-      - name: Debug
-        run: find . -path **/jacoco*.xml -printf '%p,'
-
       - name: Get coverage files
         id: coverage-files-generator
         if: ${{ github.actor != 'dependabot[bot]' && runner.os == 'Linux' }}
