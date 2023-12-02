@@ -70,9 +70,15 @@ jobs:
         run: echo "COVERAGE_FILES=$(find . -path **/jacoco*.xml -printf '%p,')" >> "$GITHUB_OUTPUT"
         id: coverage-files-generator
 
+      - name: Debug
+        run: echo "files $files"
+        env:
+          files: ${{ steps.coverage-files-generator.outputs.COVERAGE_FILES }}
+
       - name: Codacy coverage reporter
         if: ${{ github.actor != 'dependabot[bot]'  && runner.os == 'Linux' }}
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
+          language: java
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: ${{ steps.coverage-files-generator.outputs.COVERAGE_FILES }}
