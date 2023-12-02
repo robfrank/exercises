@@ -44,7 +44,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: "true"
 
-      - name: Test
+      - name: Build and Test
         run: mvn -ntp verify -Pnative
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -65,16 +65,18 @@ jobs:
           name: exercises-${{ matrix.os }}-${{ runner.arch }}
           path: ./cli/target/exercises-cli
 
+      - name: Debug
+        run: find . -path **/jacoco*.xml -printf '%p,'
+
       - name: Get coverage files
         id: coverage-files-generator
         if: ${{ github.actor != 'dependabot[bot]' && runner.os == 'Linux' }}
-        run: |
-          echo "$(find . -path **/jacoco*.xml -printf '%p,')"
-          echo ::set-output name=COVERAGE_FILES::$(find . -path **/jacoco*.xml -printf '%p,')
+        run: echo "COVERAGE_FILES=$(find . -path **/jacoco*.xml -printf '%p,')" >> "$GITHUB_OUTPUT"
 
       - name: Codacy coverage reporter
         if: ${{ github.actor != 'dependabot[bot]'  && runner.os == 'Linux' }}
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
+          language: "java"
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: ${{ steps.coverage-files-generator.outputs.COVERAGE_FILES }}
