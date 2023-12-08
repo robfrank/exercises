@@ -47,7 +47,7 @@ jobs:
       - name: Build and Test
         run: |
           mvn -ntp verify
-          mvn -DskipTests -Pnative
+          mvn package -DskipTests -Pnative
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
