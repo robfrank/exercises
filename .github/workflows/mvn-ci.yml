@@ -45,7 +45,9 @@ jobs:
           native-image-job-reports: "true"
 
       - name: Build and Test
-        run: mvn -ntp verify -Pnative
+        run: |
+          mvn -ntp verify
+          mvn -DskipTests -Pnative
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
