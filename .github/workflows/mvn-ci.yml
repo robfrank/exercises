@@ -62,7 +62,7 @@ jobs:
           reporter: java-junit
 
       - name: Upload binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: exercises-${{ matrix.os }}-${{ runner.arch }}
           path: ./cli/target/exercises-cli
