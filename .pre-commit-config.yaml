@@ -27,7 +27,7 @@ repos:
         additional_dependencies:
           - prettier@3.2.4
           - prettier-plugin-java@2.5.0
-          - prettier-plugin-xml
+          - "@prettier/plugin-xml@v3.2.2"
         args:
           - --write
           - --list-different
