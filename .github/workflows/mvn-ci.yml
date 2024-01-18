@@ -1,81 +1,82 @@
+---
 name: CI
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
 
 permissions: write-all
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-      - uses: pre-commit/action@v3.0.0
+    check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v5
+            - uses: pre-commit/action@v3.0.0
 
-  build:
-    strategy:
-      matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
-    runs-on: ${{ matrix.os }}
-    needs: check
+    build:
+        strategy:
+            matrix:
+                os: [macos-latest, windows-latest, ubuntu-latest]
+        runs-on: ${{ matrix.os }}
+        needs: check
 
-    steps:
-      - uses: actions/checkout@v4
-      - name: Cache local Maven repository
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+        steps:
+            - uses: actions/checkout@v4
+            - name: Cache local Maven repository
+              uses: actions/cache@v3
+              with:
+                  path: ~/.m2/repository
+                  key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-maven-
 
-      - name: Set up GraalVM 21
-        uses: graalvm/setup-graalvm@v1
-        with:
-          distribution: "graalvm"
-          java-version: "21"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          native-image-job-reports: "true"
+            - name: Set up GraalVM 21
+              uses: graalvm/setup-graalvm@v1
+              with:
+                  distribution: graalvm
+                  java-version: '21'
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  native-image-job-reports: 'true'
 
-      - name: Build and Test
-        run: |
-          mvn -ntp verify
-          mvn package -DskipTests -Pnative
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Build and Test
+              run: |
+                  mvn -ntp verify
+                  mvn package -DskipTests -Pnative
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Test Reporter
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          name: Test Report - ${{ matrix.os }}
-          path: "**/surefire-reports/TEST*.xml"
-          list-suites: "failed"
-          list-tests: "failed"
-          reporter: java-junit
+            - name: Test Reporter
+              uses: dorny/test-reporter@v1
+              if: success() || failure()
+              with:
+                  name: Test Report - ${{ matrix.os }}
+                  path: '**/surefire-reports/TEST*.xml'
+                  list-suites: failed
+                  list-tests: failed
+                  reporter: java-junit
 
-      - name: Upload binary
-        uses: actions/upload-artifact@v4
-        with:
-          name: exercises-${{ matrix.os }}-${{ runner.arch }}
-          path: ./cli/target/exercises-cli
+            - name: Upload binary
+              uses: actions/upload-artifact@v4
+              with:
+                  name: exercises-${{ matrix.os }}-${{ runner.arch }}
+                  path: ./cli/target/exercises-cli
 
-      - name: Get coverage files
-        id: coverage-files-generator
-        if: ${{ github.actor != 'dependabot[bot]' && runner.os == 'Linux' }}
-        run: echo "COVERAGE_FILES=$(find . -path **/jacoco*.xml -printf '%p,')" >> "$GITHUB_OUTPUT"
+            - name: Get coverage files
+              id: coverage-files-generator
+              if: ${{ github.actor != 'dependabot[bot]' && runner.os == 'Linux' }}
+              run: echo "COVERAGE_FILES=$(find . -path **/jacoco*.xml -printf '%p,')" >> "$GITHUB_OUTPUT"
 
-      - name: Codacy coverage reporter
-        if: ${{ github.actor != 'dependabot[bot]'  && runner.os == 'Linux' }}
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          language: "java"
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: ${{ steps.coverage-files-generator.outputs.COVERAGE_FILES }}
+            - name: Codacy coverage reporter
+              if: ${{ github.actor != 'dependabot[bot]'  && runner.os == 'Linux' }}
+              uses: codacy/codacy-coverage-reporter-action@v1
+              with:
+                  language: java
+                  project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+                  coverage-reports: ${{ steps.coverage-files-generator.outputs.COVERAGE_FILES }}
