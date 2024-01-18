@@ -44,20 +44,23 @@ public final class RuleBasedFizzBuzzer {
 
     public static final class RuleBasedFizzBuzzerBuilder {
 
-        private final List<FizzBuzzRule> rules = new ArrayList<>();
-        private FizzBuzzRule defaultRule;
+                            private final List<FizzBuzzRule> rules = new ArrayList<>();
+                            private FizzBuzzRule defaultRule;
 
-        private RuleBasedFizzBuzzerBuilder() {}
+                            private RuleBasedFizzBuzzerBuilder() {}
 
-        public RuleBasedFizzBuzzerBuilder withRules(List<FizzBuzzRule> rules) {
-            this.rules.addAll(rules);
-            return this;
-        }
+                            public RuleBasedFizzBuzzerBuilder withRules(List<FizzBuzzRule> rules) {
+                                this.rules.addAll(rules);
+                                return this;
+                            }
 
-        public RuleBasedFizzBuzzerBuilder withRule(FizzBuzzRule rule) {
-            this.rules.add(rule);
-            return this;
-        }
+
+
+
+                            public RuleBasedFizzBuzzerBuilder withRule(FizzBuzzRule rule) {
+                                this.rules.add(rule);
+                                return this;
+                            }
 
         public RuleBasedFizzBuzzer build() {
             return new RuleBasedFizzBuzzer(rules, defaultRule);

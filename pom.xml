@@ -10,23 +10,23 @@
   <version>1.0-SNAPSHOT</version>
   <name>exercises</name>
   <properties>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>5.10.1</junit.version>
-    <assertj.version>3.25.1</assertj.version>
-    <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
-    <picocli.version>4.7.5</picocli.version>
-    <archunit-junit5.version>1.2.1</archunit-junit5.version>
-    <commons-logging.version>1.3.0</commons-logging.version>
-    <slf4j-api.version>2.0.11</slf4j-api.version>
-    <rewrite-logging-frameworks.version>2.0.1</rewrite-logging-frameworks.version>
-    <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
-    <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
-    <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
-    <rewrite-maven-plugin.version>5.19.0</rewrite-maven-plugin.version>
-    <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
-    <native-image-maven-plugin.version>0.9.28</native-image-maven-plugin.version>
+          <maven.compiler.source>21</maven.compiler.source>
+          <maven.compiler.target>21</maven.compiler.target>
+          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+          <junit.version>5.10.1</junit.version>
+          <assertj.version>3.25.1</assertj.version>
+          <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+          <picocli.version>4.7.5</picocli.version>
+          <archunit-junit5.version>1.2.1</archunit-junit5.version>
+          <commons-logging.version>1.3.0</commons-logging.version>
+          <slf4j-api.version>2.0.11</slf4j-api.version>
+          <rewrite-logging-frameworks.version>2.0.1</rewrite-logging-frameworks.version>
+          <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+          <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+          <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
+          <rewrite-maven-plugin.version>5.19.0</rewrite-maven-plugin.version>
+          <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
+          <native-image-maven-plugin.version>0.9.28</native-image-maven-plugin.version>
   </properties>
   <modules>
     <module>core</module>
@@ -34,6 +34,7 @@
     <module>web-javalin</module>
   </modules>
   <build>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -46,9 +47,9 @@
             <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
           </compilerArgs>
         </configuration>
-      </plugin>
+            </plugin>
       <plugin>
-        <groupId>org.jacoco</groupId>
+              <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>${jacoco-maven-plugin.version}</version>
         <executions>
