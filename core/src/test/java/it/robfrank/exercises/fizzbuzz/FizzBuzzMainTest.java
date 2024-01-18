@@ -44,7 +44,7 @@ class FizzBuzzMainTest {
     @Test
     @Disabled
     public void testMain() {
-        FizzBuzzMain.main(new String[] { "20" });
+        FizzBuzzMain.main(new String[]{"20"});
 
         assertThat(out.toString().trim())
             .containsIgnoringNewLines(

@@ -42,7 +42,7 @@ class FizzBuzzCliMainTest {
 
     @Test
     public void testMain() {
-        FizzBuzzCliMain.main(new String[] { "-r", "20" });
+        FizzBuzzCliMain.main(new String[]{"-r", "20"});
 
         assertThat(out.toString().trim())
             .containsIgnoringNewLines(
