@@ -2,15 +2,6 @@
 # Prettier configuration
 overrides:
     - files:
-          - '**/*.*'
-      options:
-          printWidth: 160
-    - files:
-          - '**/*.xml'
-      options:
-          tabWidth: 4
-          printWidth: 160
-    - files:
           - '**/*.java'
       options:
           printWidth: 160
@@ -18,3 +9,12 @@ overrides:
           useTabs: false
           trailingComma: none
           requirePragma: false
+    - files:
+          - '**/*.xml'
+      options:
+          tabWidth: 4
+          printWidth: 160
+    - files:
+          - '**/*.*'
+      options:
+          printWidth: 160
