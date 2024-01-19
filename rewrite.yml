@@ -1,42 +1,17 @@
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: it.robfrank.GeneralCleanup
+tags:
+    - slf4j
+    - logging
 recipeList:
     - org.openrewrite.java.RemoveUnusedImports
     - org.openrewrite.java.OrderImports
     - org.openrewrite.java.logging.SystemErrToLogging
     - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
-    - org.openrewrite.staticanalysis.DefaultComesLast
-    - org.openrewrite.staticanalysis.EmptyBlock
-    - org.openrewrite.java.format.EmptyNewlineAtEndOfFile
-    - org.openrewrite.staticanalysis.ForLoopControlVariablePostfixOperators
-    - org.openrewrite.staticanalysis.FinalizePrivateFields
-    - org.openrewrite.java.format.MethodParamPad
-    - org.openrewrite.java.format.NoWhitespaceAfter
-    - org.openrewrite.java.format.NoWhitespaceBefore
-    - org.openrewrite.java.format.PadEmptyForLoopComponents
-    - org.openrewrite.staticanalysis.TypecastParenPad
-    - org.openrewrite.staticanalysis.EqualsAvoidsNull
-    - org.openrewrite.staticanalysis.ExplicitInitialization
-    - org.openrewrite.staticanalysis.FallThrough
-    - org.openrewrite.staticanalysis.HideUtilityClassConstructor
-    - org.openrewrite.staticanalysis.NeedBraces
-    - org.openrewrite.staticanalysis.OperatorWrap
-    - org.openrewrite.staticanalysis.UnnecessaryParentheses
-    - org.openrewrite.staticanalysis.ReplaceThreadRunWithThreadStart
-    - org.openrewrite.staticanalysis.ChainStringBuilderAppendCalls
-    - org.openrewrite.staticanalysis.ReplaceStringBuilderWithString
     - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
-#---
-#type: specs.openrewrite.org/v1beta/recipe
-#name: org.openrewrite.java.logging.slf4j.Slf4jBestPractices
-#displayName: SLF4J best practices
-#description: Applies best practices to logging with SLF4J.
-#tags:
-#  - slf4j
-#  - logging
-#recipeList:
-#  - org.openrewrite.java.logging.slf4j.LoggersNamedForEnclosingClass
-#  - org.openrewrite.java.logging.slf4j.ParameterizedLogging
-#  - org.openrewrite.java.logging.slf4j.Slf4jLogShouldBeConstant
-#  - org.openrewrite.java.logging.slf4j.CompleteExceptionLogging
+    - org.openrewrite.java.migrate.UpgradeToJava21
+    - org.openrewrite.java.logging.slf4j.Slf4jBestPractices
+    - org.openrewrite.java.migrate.util.JavaUtilAPIs
+    - org.openrewrite.java.migrate.concurrent.JavaConcurrentAPIs
+    - org.openrewrite.java.testing.assertj.JUnitToAssertj
