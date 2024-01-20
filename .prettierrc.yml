@@ -17,4 +17,5 @@ overrides:
     - files:
           - '**/*.*'
       options:
+          tabWidth: 4
           printWidth: 160
