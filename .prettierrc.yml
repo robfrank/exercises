@@ -5,17 +5,17 @@ overrides:
           - '**/*.java'
       options:
           printWidth: 160
-          tabWidth: 4
+          tabWidth: 2
           useTabs: false
           trailingComma: none
           requirePragma: false
     - files:
           - '**/*.xml'
       options:
-          tabWidth: 4
+          tabWidth: 2
           printWidth: 160
     - files:
           - '**/*.*'
       options:
-          tabWidth: 4
+          tabWidth: 2
           printWidth: 160
