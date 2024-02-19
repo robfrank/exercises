@@ -13,7 +13,7 @@
     </parent>
     <artifactId>exercises-web-javalin</artifactId>
     <properties>
-        <javalin.version>6.0.1</javalin.version>
+        <javalin.version>6.1.0</javalin.version>
         <maven-shade-plugin.version>3.5.1</maven-shade-plugin.version>
         <docker-maven-plugin.version>0.43.4</docker-maven-plugin.version>
         <docker-maven-plugin.platform>linux/amd64,linux/arm64</docker-maven-plugin.platform>
