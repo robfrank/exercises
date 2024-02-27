@@ -7,21 +7,20 @@ import io.javalin.Javalin;
 
 public class JavalinAppFactory {
 
-    private final Javalin app;
+  private final Javalin app;
 
-    public JavalinAppFactory() {
-        var handler = new FizzBuzzHandler();
+  public JavalinAppFactory() {
+    var handler = new FizzBuzzHandler();
 
-        app = Javalin.create(config -> {
-            config.router.apiBuilder(() -> {
-                get("/", ctx -> ctx.result("Hello World"));
-                path("/fizzbuzz", () -> path("{range}", () -> get(handler)));
+    app = Javalin.create(config -> {
+      config.router.apiBuilder(() -> {
+        get("/", ctx -> ctx.result("Hello World"));
+        path("/fizzbuzz", () -> path("{range}", () -> get(handler)));
+      });
+    });
+  }
 
-            });
-        });
-    }
-
-    public Javalin getApp() {
-        return app;
-    }
+  public Javalin getApp() {
+    return app;
+  }
 }

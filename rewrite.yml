@@ -2,16 +2,16 @@
 type: specs.openrewrite.org/v1beta/recipe
 name: it.robfrank.GeneralCleanup
 tags:
-    - slf4j
-    - logging
+  - slf4j
+  - logging
 recipeList:
-    - org.openrewrite.java.RemoveUnusedImports
-    - org.openrewrite.java.OrderImports
-    - org.openrewrite.java.logging.SystemErrToLogging
-    - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
-    - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
-    - org.openrewrite.java.migrate.UpgradeToJava21
-    - org.openrewrite.java.logging.slf4j.Slf4jBestPractices
-    - org.openrewrite.java.migrate.util.JavaUtilAPIs
-    - org.openrewrite.java.migrate.concurrent.JavaConcurrentAPIs
-    - org.openrewrite.java.testing.assertj.JUnitToAssertj
+  - org.openrewrite.java.RemoveUnusedImports
+  - org.openrewrite.java.OrderImports
+  - org.openrewrite.java.logging.SystemErrToLogging
+  - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
+  - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
+  - org.openrewrite.java.migrate.UpgradeToJava21
+  - org.openrewrite.java.logging.slf4j.Slf4jBestPractices
+  - org.openrewrite.java.migrate.util.JavaUtilAPIs
+  - org.openrewrite.java.migrate.concurrent.JavaConcurrentAPIs
+  - org.openrewrite.java.testing.assertj.JUnitToAssertj

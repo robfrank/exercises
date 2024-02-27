@@ -1,18 +1,18 @@
 ---
 pull_request_rules:
-    - name: Automatic merge on approval
-      conditions:
-          - '#approved-reviews-by>=1'
-      actions:
-          merge:
-              method: merge
-    - name: automatic merge for Dependabot pull requests
+  - name: Automatic merge on approval
+    conditions:
+      - "#approved-reviews-by>=1"
+    actions:
+      merge:
+        method: merge
+  - name: automatic merge for Dependabot pull requests
 
-      conditions:
-          - author~=^dependabot(|-preview)\[bot\]$
-          - check-success=CI - test and coverage / test (pull_request)
-          - title~=^Bump [^\s]+ from ([\d]+)\..+ to \1\.
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - check-success=CI - test and coverage / test (pull_request)
+      - title~=^Bump [^\s]+ from ([\d]+)\..+ to \1\.
 
-      actions:
-          merge:
-              method: merge
+    actions:
+      merge:
+        method: merge

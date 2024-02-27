@@ -27,34 +27,33 @@ import picocli.CommandLine.Option;
 @Command(name = "fizzbuzz", mixinStandardHelpOptions = true, version = "the fizzvuzz", description = "Fizzbuzzzzzz")
 public class FizzBuzzCliMain implements Callable<Integer> {
 
-    @Option(names = { "-r", "--range" }, description = "range number")
-    private Integer range = 20;
+  @Option(names = { "-r", "--range" }, description = "range number")
+  private Integer range = 20;
 
-    public static void main(String[] args) {
-        int exitCode = new CommandLine(new FizzBuzzCliMain()).execute(args);
-        //        System.exit(exitCode);
-    }
+  public static void main(String[] args) {
+    int exitCode = new CommandLine(new FizzBuzzCliMain()).execute(args);
+    //        System.exit(exitCode);
+  }
 
-    @Override
-    public Integer call() throws Exception {
-        System.out.println("range = " + range);
+  @Override
+  public Integer call() throws Exception {
+    System.out.println("range = " + range);
 
-        RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer
-            .builder()
-            .withRules(
-                List.of(
-                    FizzBuzzRule.builder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build(),
-                    FizzBuzzRule.builder().withCondition(n -> n % 15 == 0).withMapper(n -> "fizzbuzz").build()
-                )
-            )
-            .withRule(FizzBuzzRule.builder().withCondition(n -> n % 5 == 0).withMapper(n -> "buzz").build())
-            .withRule(FizzBuzzRule.builder().withCondition(n -> n % 3 == 0).withMapper(n -> "fizz").build())
-            .withDefaultRule(FizzBuzzRule.builder().withCondition(n -> true).withMapper(Object::toString).build())
-            .build();
+    RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer.builder()
+      .withRules(
+        List.of(
+          FizzBuzzRule.builder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build(),
+          FizzBuzzRule.builder().withCondition(n -> n % 15 == 0).withMapper(n -> "fizzbuzz").build()
+        )
+      )
+      .withRule(FizzBuzzRule.builder().withCondition(n -> n % 5 == 0).withMapper(n -> "buzz").build())
+      .withRule(FizzBuzzRule.builder().withCondition(n -> n % 3 == 0).withMapper(n -> "fizz").build())
+      .withDefaultRule(FizzBuzzRule.builder().withCondition(n -> true).withMapper(Object::toString).build())
+      .build();
 
-        String fizzBuzzerized = configurableFizzBuzzer.fizzBuzzerize(IntStream.rangeClosed(1, range).boxed());
+    String fizzBuzzerized = configurableFizzBuzzer.fizzBuzzerize(IntStream.rangeClosed(1, range).boxed());
 
-        System.out.println("fizzBuzzrized = " + fizzBuzzerized);
-        return 0;
-    }
+    System.out.println("fizzBuzzrized = " + fizzBuzzerized);
+    return 0;
+  }
 }

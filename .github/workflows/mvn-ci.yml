@@ -23,7 +23,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ macos-latest, windows-latest, ubuntu-latest ]
+        os: [macos-latest, windows-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     needs: check
 
@@ -49,9 +49,9 @@ jobs:
         uses: graalvm/setup-graalvm@v1
         with:
           distribution: graalvm
-          java-version: '21'
+          java-version: "21"
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          native-image-job-reports: 'true'
+          native-image-job-reports: "true"
 
       - name: Build and Test
         run: |
@@ -65,7 +65,7 @@ jobs:
         if: success() || failure()
         with:
           name: Test Report - ${{ matrix.os }}
-          path: '**/surefire-reports/TEST*.xml'
+          path: "**/surefire-reports/TEST*.xml"
           list-suites: failed
           list-tests: failed
           reporter: java-junit
