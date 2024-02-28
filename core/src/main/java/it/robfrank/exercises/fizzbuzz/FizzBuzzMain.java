@@ -16,15 +16,18 @@
 package it.robfrank.exercises.fizzbuzz;
 
 import java.util.List;
+import java.util.logging.LogManager;
 import java.util.stream.IntStream;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class FizzBuzzMain {
 
-  //        static Logger logger = LogManager.getLogManager().getLogger(FizzBuzzMain.class.getName());
+  //          static java.util.logging.Logger logger = LogManager.getLogManager().getLogger(FizzBuzzMain.class.getName());
 
-  //        static Log log = LogFactory.getLog(FizzBuzzMain.class);
+  //          static Log log = LogFactory.getLog(FizzBuzzMain.class);
 
   static Logger slf4jLogger = LoggerFactory.getLogger(FizzBuzzMain.class);
 
