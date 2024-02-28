@@ -28,8 +28,10 @@ public class FizzBuzz {
     return switch (number) {
       case Integer n when (n % 15 == 0) -> "fizzbuzz";
       case Integer n when (n % 3 == 0) -> "fizz";
-      case Integer n when (n % 5 == 0) -> "buzz";
-      default -> number.toString();
+
+
+                case Integer n when (n % 5 == 0) -> "buzz";
+                default -> number.toString();
     };
   }
 }

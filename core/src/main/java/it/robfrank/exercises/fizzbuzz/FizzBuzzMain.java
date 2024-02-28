@@ -31,6 +31,7 @@ public class FizzBuzzMain {
   public static void main(String[] args) {
     Integer range = Integer.valueOf(args[0]);
     //        System.out.println("range = " + range);
+
     slf4jLogger.info("range = {}", range);
 
     RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer.builder()
