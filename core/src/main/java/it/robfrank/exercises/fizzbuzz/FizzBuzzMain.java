@@ -16,10 +16,7 @@
 package it.robfrank.exercises.fizzbuzz;
 
 import java.util.List;
-import java.util.logging.LogManager;
 import java.util.stream.IntStream;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
