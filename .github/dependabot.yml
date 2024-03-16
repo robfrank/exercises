@@ -8,7 +8,7 @@ updates:
     open-pull-requests-limit: 20
 
   - package-ecosystem: docker
-    directory: /web-javalin/src/main/docker/Dockerfile
+    directory: /web-javalin/src/main/docker
     schedule:
       interval: weekly
     open-pull-requests-limit: 20
