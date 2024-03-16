@@ -9,7 +9,6 @@ recipeList:
   - org.openrewrite.java.OrderImports
   - org.openrewrite.java.logging.SystemErrToLogging
   - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
-  - org.openrewrite.java.ShortenFullyQualifiedTypeReferences
   - org.openrewrite.java.migrate.UpgradeToJava21
   - org.openrewrite.java.logging.slf4j.Slf4jBestPractices
   - org.openrewrite.java.migrate.util.JavaUtilAPIs

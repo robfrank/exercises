@@ -42,17 +42,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: configure git username
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email noreply@github.com
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           branch: improvement/cleancode-${{ github.run_id }}
           labels: dependencies
-          body: "Openrewrite propose some improvement"
+          body: "chore: Openrewrite clean code"
           title: "Openrewrite propose some improvement"
