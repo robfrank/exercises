@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Set up GraalVM 21
-        uses: graalvm/setup-graalvm@3d7ab58c1daa2185dbfd9e4a9db54f1f0e09eac2 # v1.1.9
+        uses: graalvm/setup-graalvm@2f25c0caae5b220866f732832d5e3e29ff493338 # v1.2.1
         with:
           distribution: graalvm
           java-version: "21"
