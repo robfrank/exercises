@@ -46,7 +46,7 @@ jobs:
         if: ${{ matrix.os != 'windows-latest' }}
         uses: docker/setup-buildx-action@2b51285047da1547ffb1b2203d8be4c0af6b1f20 # v3.2.0
 
-      - name: Set up GraalVM 21
+      - name: Set up GraalVM 22
         uses: graalvm/setup-graalvm@2f25c0caae5b220866f732832d5e3e29ff493338 # v1.2.1
         with:
           distribution: graalvm
