@@ -40,7 +40,7 @@ jobs:
       - name: Set up GraalVM 22
         uses: graalvm/setup-graalvm@2f25c0caae5b220866f732832d5e3e29ff493338 # v1.2.1
         with:
-          distribution: graalvm
+          distribution: graalvm-community
           java-version: "22"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: "true"
