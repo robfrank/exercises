@@ -25,7 +25,7 @@
         <rewrite-maven-plugin.version>5.29.0</rewrite-maven-plugin.version>
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
         <native-image-maven-plugin.version>0.10.1</native-image-maven-plugin.version>
-        <rewrite-static-analysis.version>1.5.0</rewrite-static-analysis.version>
+        <rewrite-static-analysis.version>1.6.0</rewrite-static-analysis.version>
     </properties>
     <modules>
         <module>core</module>
