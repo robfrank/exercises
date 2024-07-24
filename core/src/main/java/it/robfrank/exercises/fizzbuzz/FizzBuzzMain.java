@@ -15,10 +15,11 @@
  */
 package it.robfrank.exercises.fizzbuzz;
 
-import java.util.List;
-import java.util.stream.IntStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.stream.IntStream;
 
 public class FizzBuzzMain {
 

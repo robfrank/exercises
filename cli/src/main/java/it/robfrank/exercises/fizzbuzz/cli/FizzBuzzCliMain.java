@@ -17,12 +17,13 @@ package it.robfrank.exercises.fizzbuzz.cli;
 
 import it.robfrank.exercises.fizzbuzz.FizzBuzzRule;
 import it.robfrank.exercises.fizzbuzz.RuleBasedFizzBuzzer;
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.stream.IntStream;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
+
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.stream.IntStream;
 
 @Command(name = "fizzbuzz", mixinStandardHelpOptions = true, version = "the fizzvuzz", description = "Fizzbuzzzzzz")
 public class FizzBuzzCliMain implements Callable<Integer> {
