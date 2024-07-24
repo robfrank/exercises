@@ -8,9 +8,8 @@ import io.javalin.openapi.OpenApiParam;
 import io.javalin.openapi.OpenApiResponse;
 import it.robfrank.exercises.fizzbuzz.FizzBuzzRule;
 import it.robfrank.exercises.fizzbuzz.RuleBasedFizzBuzzer;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.stream.IntStream;
+import org.jetbrains.annotations.NotNull;
 
 public class FizzBuzzHandler implements Handler {
 
