@@ -33,6 +33,11 @@
         <module>cli</module>
         <module>web-javalin</module>
     </modules>
+    <scm>
+        <connection>scm:git:git://github.com/robfrank/exercises.git</connection>
+        <developerConnection>scm:git:ssh://github.com/robfrank/exercises.git</developerConnection>
+        <url>https://github.com/robfrank/exercises</url>
+    </scm>
     <distributionManagement>
         <repository>
             <id>github</id>
