@@ -34,8 +34,7 @@
         <module>web-javalin</module>
     </modules>
     <scm>
-        <connection>scm:git:git://github.com/robfrank/exercises.git</connection>
-        <developerConnection>scm:git:ssh://github.com/robfrank/exercises.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/robfrank/exercises</developerConnection>
         <url>https://github.com/robfrank/exercises</url>
     </scm>
     <distributionManagement>
@@ -47,7 +46,7 @@
         <snapshotRepository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/robfrank/exercises</url>
+            <url>https://maven.pkg.github.com/ro    bfrank/exercises</url>
         </snapshotRepository>
     </distributionManagement>
     <build>
