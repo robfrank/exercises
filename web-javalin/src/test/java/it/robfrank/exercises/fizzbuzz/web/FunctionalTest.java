@@ -1,7 +1,6 @@
 package it.robfrank.exercises.fizzbuzz.web;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.javalin.Javalin;
 import io.javalin.testtools.JavalinTest;
