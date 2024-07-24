@@ -5,6 +5,7 @@ import static com.tngtech.archunit.library.GeneralCodingRules.*;
 
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
+import org.junit.jupiter.api.Assertions;
 
 public class CommonArchTest {
 
@@ -32,6 +33,6 @@ public class CommonArchTest {
   public static final ArchRule no_junit_assertions = noClasses()
     .should()
     .accessClassesThat()
-    .haveFullyQualifiedName(org.junit.jupiter.api.Assertions.class.getName())
+    .haveFullyQualifiedName(Assertions.class.getName())
     .because("we want to use AssertJ assertions instead of JUnit assertions");
 }
