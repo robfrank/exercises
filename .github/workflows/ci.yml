@@ -77,6 +77,20 @@ jobs:
           name: exercises-${{ matrix.os }}-${{ runner.arch }}
           path: ./cli/target/exercises-cli
 
+      - name: Scan Image
+        uses: anchore/scan-action@d43cc1dfea6a99ed123bf8f3133f1797c9b44492 # v4.1.0
+        id: scan
+        with:
+          fail-build: true
+          image: robfrank/exercises-web:latest
+          output-format: sarif
+          severity-cutoff: critical
+
+      - name: Upload SARIF Files
+        uses: github/codeql-action/upload-sarif@2d790406f505036ef40ecba973cc774a50395aac # v3.25.13
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif }}
+
       - name: Get coverage files
         id: coverage-files-generator
         if: ${{ github.actor != 'dependabot[bot]' && runner.os == 'Linux' }}

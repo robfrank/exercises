@@ -154,7 +154,7 @@
                             <verbose>true</verbose>
                             <images>
                                 <image>
-                                    <name>robfrank/exercises</name>
+                                    <name>robfrank/exercises-web</name>
                                     <build>
                                         <assembly>
                                             <descriptorRef>artifact</descriptorRef>
