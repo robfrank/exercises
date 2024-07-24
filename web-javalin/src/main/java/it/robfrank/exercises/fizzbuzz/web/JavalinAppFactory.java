@@ -14,16 +14,17 @@ public class JavalinAppFactory {
   public JavalinAppFactory() {
     var handler = new FizzBuzzHandler();
 
-    app = Javalin.create(config -> {
-      config.router.apiBuilder(() -> {
-        get("/", ctx -> ctx.result("Hello World"));
-        path("/fizzbuzz", () -> path("{range}", () -> get(handler)));
+    app =
+      Javalin.create(config -> {
+        config.router.apiBuilder(() -> {
+          get("/", ctx -> ctx.result("Hello World"));
+          path("/fizzbuzz", () -> path("{range}", () -> get(handler)));
+        });
+
+        config.registerPlugin(new OpenApiPlugin(openApiConfig -> openApiConfig.withDocumentationPath("/openapi")));
+
+        config.registerPlugin(new SwaggerPlugin(swaggerConfiguration -> swaggerConfiguration.setDocumentationPath("/openapi")));
       });
-
-      config.registerPlugin(new OpenApiPlugin(openApiConfig -> openApiConfig.withDocumentationPath("/openapi")));
-
-      config.registerPlugin(new SwaggerPlugin(swaggerConfiguration -> swaggerConfiguration.setDocumentationPath("/openapi")));
-    });
   }
 
   public Javalin getApp() {

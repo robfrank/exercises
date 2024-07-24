@@ -39,7 +39,8 @@ public class FizzBuzzCliMain implements Callable<Integer> {
   public Integer call() throws Exception {
     System.out.println("range = " + range);
 
-    RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer.builder()
+    RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer
+      .builder()
       .withRules(
         List.of(
           FizzBuzzRule.builder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build(),

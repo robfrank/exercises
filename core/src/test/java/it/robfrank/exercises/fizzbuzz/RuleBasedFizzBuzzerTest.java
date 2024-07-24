@@ -29,7 +29,8 @@ class RuleBasedFizzBuzzerTest {
 
   @Test
   void whenRunningConfigurableFizzBuzz_ThenReturnExpectedOutput() {
-    RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer.builder()
+    RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer
+      .builder()
       .withRules(
         List.of(
           FizzBuzzRule.builder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build(),
