@@ -17,10 +17,9 @@ package it.robfrank.exercises.fizzbuzz;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
 
 class FizzBuzzTest {
 
