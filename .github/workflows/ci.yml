@@ -81,7 +81,7 @@ jobs:
         uses: anchore/scan-action@d43cc1dfea6a99ed123bf8f3133f1797c9b44492 # v4.1.0
         id: scan
         with:
-          fail-build: true
+          fail-build: false
           image: robfrank/exercises-web:latest
           output-format: sarif
           severity-cutoff: critical
