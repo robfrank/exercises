@@ -1,6 +1,7 @@
 package it.robfrank.exercises.fizzbuzz.web;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.javalin.Javalin;
 import io.javalin.testtools.JavalinTest;
@@ -30,6 +31,7 @@ class FunctionalTest {
   void should_say_hello_world() {
     JavalinTest.test(app, (server, client) -> {
       Response response = client.get("/");
+      //      assertTrue(response.isSuccessful());
       assertThat(response.code()).isEqualTo(200);
       assertThat(response.body().string()).isEqualTo("Hello World");
     });

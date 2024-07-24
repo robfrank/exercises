@@ -2,6 +2,10 @@ package it.robfrank.exercises.fizzbuzz.web;
 
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
+import io.javalin.openapi.OpenApi;
+import io.javalin.openapi.OpenApiContent;
+import io.javalin.openapi.OpenApiParam;
+import io.javalin.openapi.OpenApiResponse;
 import it.robfrank.exercises.fizzbuzz.FizzBuzzRule;
 import it.robfrank.exercises.fizzbuzz.RuleBasedFizzBuzzer;
 import java.util.stream.IntStream;
@@ -21,6 +25,12 @@ public class FizzBuzzHandler implements Handler {
       .build();
   }
 
+  @OpenApi(
+    path = "/fizzbuzz",
+    summary = "FizzBuzz",
+    responses = { @OpenApiResponse(status = "200", content = @OpenApiContent(type = "text/plain")) },
+    pathParams = { @OpenApiParam(name = "range", description = "Range", required = true, type = Integer.class) }
+  )
   @Override
   public void handle(@NotNull Context context) throws Exception {
     var range = Integer.parseInt(context.pathParam("range"));
