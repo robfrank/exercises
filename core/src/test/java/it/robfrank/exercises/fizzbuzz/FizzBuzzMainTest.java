@@ -44,12 +44,11 @@ class FizzBuzzMainTest {
     FizzBuzzMain.main(new String[] { "20" });
 
     //    Assertions.assertTrue(true);
-    assertThat(out.toString().trim())
-      .containsIgnoringNewLines(
-        """
-        range = 20
-        fizzBuzzrized = 1 2 robfrank 4 buzz fizz 7 8 fizz buzz 11 fizz robfrank 14 fizzbuzz 16 17 fizz 19 buzz
-        """.trim()
-      );
+    assertThat(out.toString().trim()).containsIgnoringNewLines(
+      """
+      range = 20
+      fizzBuzzrized = 1 2 robfrank 4 buzz fizz 7 8 fizz buzz 11 fizz robfrank 14 fizzbuzz 16 17 fizz 19 buzz
+      """.trim()
+    );
   }
 }
