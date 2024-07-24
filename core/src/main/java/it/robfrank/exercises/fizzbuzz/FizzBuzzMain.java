@@ -33,7 +33,8 @@ public class FizzBuzzMain {
     //        System.out.println("range = " + range);
     slf4jLogger.info("range = {}", range);
 
-    RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer.builder()
+    RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer
+      .builder()
       .withRules(
         List.of(
           FizzBuzzRule.builder().withCondition(n -> n.toString().contains("3")).withMapper(n -> "robfrank").build(),
