@@ -59,7 +59,7 @@ jobs:
           git config user.name "GitHub Actions"
 
       - name: Maven release
-        run: mvn-B -DskipTests \
+        run: mvn -B -DskipTests \
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
           -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} \
           -Dusername=$GITHUB_ACTOR \
