@@ -45,6 +45,12 @@ jobs:
         if: ${{ matrix.os != 'windows-latest' }}
         uses: docker/setup-buildx-action@aa33708b10e362ff993539393ff100fa93ed6a27 # v3.5.0
 
+      - name: Set up JDK 22
+        uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9 # v4.2.1
+        with:
+          distribution: "temurin"
+          java-version: "22"
+
       - name: Set up GraalVM 22
         uses: graalvm/setup-graalvm@2911b2304bee2c2f59b9a67bf45f025a6b6de4b1 # v1.2.2
         with:
