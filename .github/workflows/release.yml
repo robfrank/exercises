@@ -59,12 +59,15 @@ jobs:
           git config user.name "GitHub Actions"
 
       - name: Maven release
-        run: mvn -B release:prepare release:perform \
+        run: |
+          mvn -B release:prepare \
           -DskipTests \
-          -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
-          -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} \
+          -DreleaseVersion=${{ inputs.releaseVersion }} \
+          -DdevelopmentVersion=${{ inputs.developmentVersion }} \
           -Dusername=$GITHUB_ACTOR \
           -Dpassword=$GITHUB_TOKEN
+
+          mvn -B release:perform
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ github.token }}
