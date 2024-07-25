@@ -10,12 +10,6 @@ import org.junit.jupiter.api.Assertions;
 public class CommonArchTest {
 
   @ArchTest
-  private final ArchRule no_jodatime = NO_CLASSES_SHOULD_USE_JODATIME;
-
-  @ArchTest
-  private final ArchRule no_jul = NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING;
-
-  @ArchTest
   public static final ArchRule no_std_out = noClasses()
     .that()
     .resideOutsideOfPackage("it.robfrank.exercises.fizzbuzz.cli")
@@ -35,4 +29,10 @@ public class CommonArchTest {
     .accessClassesThat()
     .haveFullyQualifiedName(Assertions.class.getName())
     .because("we want to use AssertJ assertions instead of JUnit assertions");
+
+  @ArchTest
+  private final ArchRule no_jodatime = NO_CLASSES_SHOULD_USE_JODATIME;
+
+  @ArchTest
+  private final ArchRule no_jul = NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING;
 }

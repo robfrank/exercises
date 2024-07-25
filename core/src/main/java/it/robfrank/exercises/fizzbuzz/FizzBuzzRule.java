@@ -29,6 +29,10 @@ public final class FizzBuzzRule implements Predicate<Integer>, Function<Integer,
     this.mapper = mapper;
   }
 
+  public static FizzBuzzRuleBuilder builder() {
+    return new FizzBuzzRuleBuilder();
+  }
+
   @Override
   public boolean test(Integer number) {
     return condition.test(number);
@@ -37,10 +41,6 @@ public final class FizzBuzzRule implements Predicate<Integer>, Function<Integer,
   @Override
   public String apply(Integer number) {
     return mapper.apply(number);
-  }
-
-  public static FizzBuzzRuleBuilder builder() {
-    return new FizzBuzzRuleBuilder();
   }
 
   public static final class FizzBuzzRuleBuilder {

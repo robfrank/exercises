@@ -30,16 +30,16 @@ public final class RuleBasedFizzBuzzer {
     this.defaultRule = defaultRule;
   }
 
+  public static RuleBasedFizzBuzzerBuilder builder() {
+    return new RuleBasedFizzBuzzerBuilder();
+  }
+
   public String fizzBuzzerize(Stream<Integer> numbers) {
     return numbers.map(this::fizzBuzzerize).collect(Collectors.joining(" "));
   }
 
   public String fizzBuzzerize(Integer number) {
     return rules.stream().filter(p -> p.test(number)).map(f -> f.apply(number)).findFirst().orElse(defaultRule.apply(number));
-  }
-
-  public static RuleBasedFizzBuzzerBuilder builder() {
-    return new RuleBasedFizzBuzzerBuilder();
   }
 
   public static final class RuleBasedFizzBuzzerBuilder {
