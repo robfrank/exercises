@@ -30,14 +30,14 @@ repos:
   #      rev: 0.2.3
   #      hooks:
   #          - id: yamlfmt
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.8
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.3.3
     hooks:
       - id: prettier
         #            types: [java, xml]
         additional_dependencies:
-          - prettier@3.2.5
-          - prettier-plugin-java@v2.6.0
+          - prettier@3.3.3
+          - prettier-plugin-java@v2.6.4
           - "@prettier/plugin-xml@v3.4.1"
         args:
           - --write
