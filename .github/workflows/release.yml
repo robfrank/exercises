@@ -68,6 +68,7 @@ jobs:
         run: |
           mvn -B release:prepare \
           -DskipTests \
+          -Dtag=${{ inputs.releaseVersion }} \
           -DreleaseVersion=${{ inputs.releaseVersion }} \
           -DdevelopmentVersion=${{ inputs.developmentVersion }} \
           -Dusername=$GITHUB_ACTOR \
