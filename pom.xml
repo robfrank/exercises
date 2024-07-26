@@ -3,7 +3,7 @@
     <groupId>it.robfrank</groupId>
     <artifactId>exercises</artifactId>
     <packaging>pom</packaging>
-    <version>202407.5</version>
+    <version>202407.6-SNAPSHOT</version>
     <name>exercises</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,7 +33,7 @@
     <scm>
         <developerConnection>scm:git:https://github.com/robfrank/exercises.git</developerConnection>
         <url>https://github.com/robfrank/exercises</url>
-        <tag>v202407.5</tag>
+        <tag>HEAD</tag>
     </scm>
     <distributionManagement>
         <repository>
