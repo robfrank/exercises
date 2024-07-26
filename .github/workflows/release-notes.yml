@@ -2,7 +2,7 @@ name: "Release notes"
 on:
   push:
     tags:
-      - "*"
+      - "**"
 
 jobs:
   release-notes:

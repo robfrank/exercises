@@ -66,15 +66,14 @@ jobs:
 
       - name: Maven release
         run: |
-          mvn -B release:prepare \
+          mvn -B release:prepare release:perform\
           -DskipTests \
           -Dtag=${{ inputs.releaseVersion }} \
+          -Darguments=-DskipTests
           -DreleaseVersion=${{ inputs.releaseVersion }} \
           -DdevelopmentVersion=${{ inputs.developmentVersion }} \
           -Dusername=$GITHUB_ACTOR \
           -Dpassword=$GITHUB_TOKEN
-
-          mvn -B release:perform
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ github.token }}
