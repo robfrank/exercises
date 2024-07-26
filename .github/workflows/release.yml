@@ -68,7 +68,7 @@ jobs:
         run: |
           mvn -B release:prepare release:perform \
           -DskipTests \
-          -Dtag=${{ inputs.releaseVersion }} \
+          -Dtag=v${{ inputs.releaseVersion }} \
           -Darguments=-DskipTests \
           -DreleaseVersion=${{ inputs.releaseVersion }} \
           -DdevelopmentVersion=${{ inputs.developmentVersion }} \
