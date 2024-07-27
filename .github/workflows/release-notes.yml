@@ -5,16 +5,17 @@ on:
       - "v*"
 
 jobs:
-  release-notes:
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
       - name: Build Changelog
         id: github_release
-        uses: mikepenz/release-changelog-builder-action@32e3c96f29a6532607f638797455e9e98cfc703d # v4.2.2
+        uses: mikepenz/release-changelog-builder-action@c7b3b6d92924cca3c990f7891d83d0fd56ae3944 # v5.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
-        uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191 # v2.0.8
+        uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191 # v2.0.8 #softprops/action-gh-release
         with:
           body: ${{steps.github_release.outputs.changelog}}
