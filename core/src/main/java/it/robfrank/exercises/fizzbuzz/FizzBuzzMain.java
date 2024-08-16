@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 
 public class FizzBuzzMain {
 
-  //          static java.util.logging.Logger logger = LogManager.getLogManager().getLogger(FizzBuzzMain.class.getName());
+  //            static java.util.logging.Logger logger = LogManager.getLogManager().getLogger(FizzBuzzMain.class.getName());
 
   //          static Log log = LogFactory.getLog(FizzBuzzMain.class);
 
