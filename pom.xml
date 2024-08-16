@@ -135,11 +135,6 @@
                     </execution>
                 </executions>
                 <dependencies>
-                    <dependency>
-                        <groupId>it.robfrank</groupId>
-                        <artifactId>exercises-arch-tests</artifactId>
-                        <version>${project.version}</version>
-                    </dependency>
                 </dependencies>
             </plugin>
             <plugin>

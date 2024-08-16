@@ -56,6 +56,11 @@
             <artifactId>picocli</artifactId>
             <version>${picocli.version}</version>
         </dependency>
+        <dependency>
+            <groupId>it.robfrank</groupId>
+            <artifactId>exercises-arch-tests</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
     <profiles>
         <profile>
