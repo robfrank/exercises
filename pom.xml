@@ -1,13 +1,9 @@
-<project
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>it.robfrank</groupId>
     <artifactId>exercises</artifactId>
     <packaging>pom</packaging>
-    <version>202407.8-SNAPSHOT</version>
+    <version>24.8.1</version>
     <name>exercises</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,7 +33,7 @@
     <scm>
         <developerConnection>scm:git:https://github.com/robfrank/exercises.git</developerConnection>
         <url>https://github.com/robfrank/exercises</url>
-        <tag>HEAD</tag>
+        <tag>v24.8.1</tag>
     </scm>
     <distributionManagement>
         <repository>
