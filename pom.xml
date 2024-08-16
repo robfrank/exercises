@@ -1,4 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
     <modelVersion>4.0.0</modelVersion>
     <groupId>it.robfrank</groupId>
     <artifactId>exercises</artifactId>
@@ -95,6 +99,43 @@
                 <configuration>
                     <argLine>@{argLine} --enable-preview</argLine>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.societegenerale.commons</groupId>
+                <artifactId>arch-unit-maven-plugin</artifactId>
+                <version>4.0.2</version>
+                <configuration>
+                    <noFailOnError>false</noFailOnError>
+                    <rules>
+                        <configurableRules>
+                            <configurableRule>
+                                <rule>it.robfrank.exercises.fizzbuzz.archtests.CommonArchTest</rule>
+                                <applyOn>
+                                    <packageName>it.robfrank.exercises.fizzbuzz</packageName>
+                                    <scope>main</scope>
+                                </applyOn>
+                            </configurableRule>
+                            <configurableRule>
+                                <rule>it.robfrank.exercises.fizzbuzz.archtests.ComponentArchTest</rule>
+                                <applyOn>
+                                    <packageName>it.robfrank.exercises.fizzbuzz</packageName>
+                                    <scope>main</scope>
+                                </applyOn>
+                            </configurableRule>
+                        </configurableRules>
+                    </rules>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>arch-test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.openrewrite.maven</groupId>

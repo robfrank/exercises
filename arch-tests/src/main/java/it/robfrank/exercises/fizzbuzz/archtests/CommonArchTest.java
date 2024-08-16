@@ -31,8 +31,8 @@ public class CommonArchTest {
     .because("we want to use AssertJ assertions instead of JUnit assertions");
 
   @ArchTest
-  private final ArchRule no_jodatime = NO_CLASSES_SHOULD_USE_JODATIME;
+  public static final ArchRule no_jodatime = NO_CLASSES_SHOULD_USE_JODATIME;
 
   @ArchTest
-  private final ArchRule no_jul = NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING;
+  public static final ArchRule no_jul = NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING;
 }
