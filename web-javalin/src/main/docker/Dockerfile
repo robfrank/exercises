@@ -1,4 +1,4 @@
-FROM eclipse-temurin:22-jdk-alpine@sha256:f412633b75c929e68fd83d36a3abd9104c778161b987e5088eab645b0e5af3f6
+FROM eclipse-temurin:23-jdk-alpine@sha256:72c7270962071bc68627d510787f7ead6edb7588a0fc466d46e8065a46f08c0f
 
 RUN apk --no-cache -U upgrade
 
