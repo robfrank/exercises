@@ -1,4 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
     <modelVersion>4.0.0</modelVersion>
     <groupId>it.robfrank</groupId>
     <artifactId>exercises</artifactId>
@@ -54,7 +58,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <enablePreview>true</enablePreview>
+                    <enablePreview>false</enablePreview>
                     <release>22</release>
                     <compilerArgs>
                         <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
@@ -208,7 +212,8 @@
                         <fallback>false</fallback>
                         <buildArgs combine.children="append">
                             <arg>--enable-preview</arg>
-                            <arg>-H:DashboardDump=fortune -H:+DashboardAll --enable-url-protocols=http</arg>
+<!--                            <arg>-H:DashboardDump=fortune -H:+DashboardAll &#45;&#45;enable-url-protocols=http</arg>-->
+                            <arg>--enable-url-protocols=http</arg>
                         </buildArgs>
                         <agent>
                             <enabled>true</enabled>
