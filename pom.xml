@@ -32,7 +32,7 @@
         <rewrite-logging-frameworks.version>2.14.0</rewrite-logging-frameworks.version>
         <rewrite-maven-plugin.version>5.40.2</rewrite-maven-plugin.version>
         <rewrite-migrate-java.version>2.25.1</rewrite-migrate-java.version>
-        <rewrite-testing-frameworks.version>2.18.0</rewrite-testing-frameworks.version>
+        <rewrite-testing-frameworks.version>2.19.0</rewrite-testing-frameworks.version>
     </properties>
     <modules>
         <module>arch-tests</module>
