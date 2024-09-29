@@ -65,7 +65,7 @@
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <enablePreview>false</enablePreview>
-                    <release>22</release>
+                    <release>23</release>
                     <compilerArgs>
                         <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
                     </compilerArgs>
