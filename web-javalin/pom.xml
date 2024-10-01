@@ -15,7 +15,7 @@
     <properties>
         <javalin.version>6.3.0</javalin.version>
         <maven-shade-plugin.version>3.6.0</maven-shade-plugin.version>
-        <docker-maven-plugin.version>0.45.0</docker-maven-plugin.version>
+        <docker-maven-plugin.version>0.45.1</docker-maven-plugin.version>
         <docker-maven-plugin.platform>linux/amd64,linux/arm64</docker-maven-plugin.platform>
     </properties>
     <dependencies>
