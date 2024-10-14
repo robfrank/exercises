@@ -17,6 +17,7 @@ public class JavalinAppFactory {
     app = Javalin.create(config -> {
       config.router.apiBuilder(() -> {
         get("/", ctx -> ctx.result("Hello World"));
+        get("/up", ctx -> ctx.status(200));
         path("/fizzbuzz", () -> path("{range}", () -> get(handler)));
       });
 
