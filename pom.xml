@@ -28,7 +28,7 @@
         <native-image-maven-plugin.version>0.10.3</native-image-maven-plugin.version>
         <arch-unit-maven-plugin.version>4.0.2</arch-unit-maven-plugin.version>
 
-        <rewrite-static-analysis.version>1.17.0</rewrite-static-analysis.version>
+        <rewrite-static-analysis.version>1.18.0</rewrite-static-analysis.version>
         <rewrite-logging-frameworks.version>2.14.0</rewrite-logging-frameworks.version>
         <rewrite-maven-plugin.version>5.42.2</rewrite-maven-plugin.version>
         <rewrite-migrate-java.version>2.26.1</rewrite-migrate-java.version>
