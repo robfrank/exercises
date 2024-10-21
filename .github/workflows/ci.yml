@@ -47,7 +47,7 @@ jobs:
         uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3.7.1
 
       - name: Set up GraalVM 23
-        uses: graalvm/setup-graalvm@22cc13fe88ef133134b3798e128fb208df55e1f5 # v1.2.3
+        uses: graalvm/setup-graalvm@6f327093bb6a42fe5eac053d21b168c46aa46f22 # v1.2.4
         with:
           distribution: graalvm-community
           java-version: "23"
@@ -78,7 +78,7 @@ jobs:
           path: ./cli/target/exercises-cli
 
       - name: Scan Image
-        uses: anchore/scan-action@4e08a16a68fb1b35d2fca00f0607db0b5b5120a7 # v5.0.0
+        uses: anchore/scan-action@49e50b215b647c5ec97abb66f69af73c46a4ca08 # v5.0.1
         id: scan
         with:
           fail-build: false
