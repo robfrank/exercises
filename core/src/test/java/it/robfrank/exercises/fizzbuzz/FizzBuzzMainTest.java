@@ -43,7 +43,7 @@ class FizzBuzzMainTest {
 
   @Test
   @Disabled
-  public void testMain() {
+  void main() {
     FizzBuzzMain.main(new String[] { "20" });
 
     //    Assertions.assertTrue(true);
