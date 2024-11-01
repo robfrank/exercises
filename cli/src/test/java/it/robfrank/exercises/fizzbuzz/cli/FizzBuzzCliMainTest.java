@@ -41,7 +41,7 @@ class FizzBuzzCliMainTest {
   }
 
   @Test
-  public void testMain() {
+  void main() {
     FizzBuzzCliMain.main(new String[] { "-r", "20" });
     //    Assertions.assertTrue(true);
 
