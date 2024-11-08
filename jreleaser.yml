@@ -1,0 +1,25 @@
+# Generated with JReleaser 1.15.0 at 2024-11-08T11:31:50.897915+01:00
+project:
+  name: exercise
+  version: 24.8.3-SNAPSHOT
+  description: Awesome Exercise
+  longDescription: Awesome Exercise
+  authors:
+    - Frank
+  license: Apache-2.0
+  links:
+    homepage: https://github.com/robfrank/exercises
+  java:
+    groupId: it.robfrank
+    version: 23
+  inceptionYear: 2024
+
+release:
+  github:
+    owner: robfrank
+
+distributions:
+  app:
+    artifacts:
+      - path: cli/target/exercises-cli-{{projectVersion}}.jar
+      - path: web-javalin/target/exercises-web-javalin-{{projectVersion}}.jar
