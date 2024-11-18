@@ -47,7 +47,7 @@ jobs:
         uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3.7.1
 
       - name: Set up GraalVM 23
-        uses: graalvm/setup-graalvm@557ffcf459751b4d92319ee255bf3bec9b73964c # v1.2.5
+        uses: graalvm/setup-graalvm@4a200f28cd70d1940b5e33bd00830b7dc71a7e2b # v1.2.6
         with:
           distribution: graalvm-community
           java-version: "23"
@@ -78,7 +78,7 @@ jobs:
           path: ./cli/target/exercises-cli
 
       - name: Scan Image
-        uses: anchore/scan-action@5ed195cc06065322983cae4bb31e2a751feb86fd # v5.2.0
+        uses: anchore/scan-action@f2ba85e044c8f5e5014c9a539328a9c78d3bfa49 # v5.2.1
         id: scan
         with:
           fail-build: false
@@ -87,7 +87,7 @@ jobs:
           severity-cutoff: critical
 
       - name: Upload SARIF Files
-        uses: github/codeql-action/upload-sarif@662472033e021d55d94146f66f6058822b0b39fd # v3.27.0
+        uses: github/codeql-action/upload-sarif@ea9e4e37992a54ee68a9622e985e60c8e8f12d9f # v3.27.4
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
 
