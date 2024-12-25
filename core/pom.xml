@@ -35,6 +35,7 @@
             <groupId>it.robfrank</groupId>
             <artifactId>exercises-arch-tests</artifactId>
             <version>${project.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <profiles>
