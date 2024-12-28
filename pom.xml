@@ -218,6 +218,9 @@
                         <fallback>false</fallback>
                         <buildArgs combine.children="append">
                             <arg>--enable-preview</arg>
+<!--                            <arg>-H:+GenerateEmbeddedResourcesFile</arg>-->
+<!--                            <arg>-H:Log=registerResource:5</arg>-->
+<!--                            <arg>-H:IncludeResources=logback.xml</arg>-->
                             <!--                            <arg>-H:DashboardDump=fortune -H:+DashboardAll &#45;&#45;enable-url-protocols=http</arg>-->
                             <arg>--enable-url-protocols=http</arg>
                         </buildArgs>
