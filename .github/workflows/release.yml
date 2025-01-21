@@ -39,7 +39,7 @@ jobs:
 
       - name: Set up QEMU
         if: ${{ matrix.os != 'windows-latest' }}
-        uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf # v3.2.0
+        uses: docker/setup-qemu-action@53851d14592bedcffcf25ea515637cff71ef929a # v3.3.0
 
       - name: Set up Docker Buildx
         if: ${{ matrix.os != 'windows-latest' }}
@@ -52,7 +52,7 @@ jobs:
           java-version: "23"
 
       - name: Set up GraalVM 23
-        uses: graalvm/setup-graalvm@4a200f28cd70d1940b5e33bd00830b7dc71a7e2b # v1.2.6
+        uses: graalvm/setup-graalvm@c09e29bb115a83bd4b7c7e99bb46e2e8a1c50466 # v1.2.7
         with:
           distribution: graalvm-community
           java-version: "23"
