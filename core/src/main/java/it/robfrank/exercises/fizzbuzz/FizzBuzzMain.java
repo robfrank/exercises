@@ -20,17 +20,23 @@ import java.util.stream.IntStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Main entry point for the FizzBuzz application.
+ * Demonstrates the use of RuleBasedFizzBuzzer with custom rules configuration.
+ */
 public class FizzBuzzMain {
 
-  //            static java.util.logging.Logger logger = LogManager.getLogManager().getLogger(FizzBuzzMain.class.getName());
-
-  //          static Log log = LogFactory.getLog(FizzBuzzMain.class);
-
+  /** Logger for the application */
   static Logger slf4jLogger = LoggerFactory.getLogger(FizzBuzzMain.class);
 
+  /**
+   * Executes the FizzBuzz program with a configurable rule-based implementation.
+   * Takes a range limit as a command-line argument and processes numbers from 1 to that limit.
+   *
+   * @param args command line arguments - args[0] should contain the upper limit for the range of numbers
+   */
   public static void main(String[] args) {
     Integer range = Integer.valueOf(args[0]);
-    //        System.out.println("range = " + range);
     slf4jLogger.info("range = {}", range);
 
     RuleBasedFizzBuzzer configurableFizzBuzzer = RuleBasedFizzBuzzer.builder()
@@ -46,7 +52,6 @@ public class FizzBuzzMain {
       .build();
 
     String fizzBuzzerized = configurableFizzBuzzer.fizzBuzzerize(IntStream.rangeClosed(1, range).boxed());
-    //        System.out.println("fizzBuzzrized = " + fizzBuzzerized);
     slf4jLogger.info("fizzBuzzrized = {}", fizzBuzzerized);
   }
 }
