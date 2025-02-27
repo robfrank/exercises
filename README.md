@@ -38,6 +38,22 @@ To skip tests during build:
 ./mvnw test
 ```
 
+### Building Native Binaries and Docker Images
+
+The project supports building both native executables and Docker images. You can build them together using:
+
+```bash
+# Build everything with both native and docker profiles
+./mvnw clean package -Pdocker,native
+```
+
+Native binaries will be created in the respective `target` directories:
+
+- `cli/target/exercises-cli`
+- `web-javalin/target/exercises-web-javalin`
+
+The Docker image will be built as `robfrank/exercises-web` with tags for `latest` and the current version.
+
 ## Release Process
 
 This project uses GitHub Actions for automated releases. To create a new release:
