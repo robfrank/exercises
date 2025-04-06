@@ -46,11 +46,11 @@ jobs:
         if: ${{ matrix.os != 'windows-latest' }}
         uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0
 
-      - name: Set up GraalVM 23
+      - name: Set up GraalVM 24
         uses: graalvm/setup-graalvm@01ed653ac833fe80569f1ef9f25585ba2811baab # v1.3.3
         with:
           distribution: graalvm-community
-          java-version: "23"
+          java-version: "24"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: "true"
 
