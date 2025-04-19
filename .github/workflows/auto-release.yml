@@ -79,6 +79,7 @@ jobs:
 
       - name: Build with Maven
         run: |
+          mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${{ env.VERSION }}
           mvn -B deploy -DskipTests -Pdocker \
               -Dusername=$GITHUB_ACTOR \
               -Dpassword=$GITHUB_TOKEN \
