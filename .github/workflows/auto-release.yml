@@ -94,6 +94,13 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build Changelog
+        if: ${{ success() }}
+        id: release_notes
+        uses: mikepenz/release-changelog-builder-action@e92187bd633e680ebfdd15961a7c30b2d097e7ad # v5.3.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create GitHub Release
         if: ${{ success() }}
         id: create_release
@@ -105,6 +112,7 @@ jobs:
           name: Release v${{ steps.get_version.outputs.VERSION }}
           draft: false
           prerelease: false
-          generate_release_notes: true
+          body: ${{steps.release_notes.outputs.changelog}}
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
