@@ -86,7 +86,7 @@ jobs:
       - name: Build with Maven
         run: |
           mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${{ steps.get_version.outputs.VERSION }}
-          mvn -B deploy -DskipTests -Pdocker \
+          mvn -B deploy -Pdocker -Pnative \
               -Ddocker.username=$GITHUB_ACTOR \
               -Ddocker.password=$GITHUB_TOKEN  \
               -Ddocker.registry=${{ env.DOCKER_REGISTRY }}
@@ -107,12 +107,11 @@ jobs:
         uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
         with:
           files: |
-            cli/target/exercises-cli-${{ steps.get_version.outputs.VERSION }}.jar
-            web-javalin/target/exercises-web-javalin-${{ steps.get_version.outputs.VERSION }}.jar
+            cli/target/exercises-cli-*
+            web-javalin/target/exercises-web-javalin-*
           name: Release v${{ steps.get_version.outputs.VERSION }}
           draft: false
           prerelease: false
           body: ${{steps.release_notes.outputs.changelog}}
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
