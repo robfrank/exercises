@@ -211,6 +211,7 @@
                         </execution>
                     </executions>
                     <configuration>
+                        <imageName>${project.artifactId}-${project.version}</imageName>
                         <skipNativeTests>true</skipNativeTests>
                         <metadataRepository>
                             <enabled>true</enabled>
