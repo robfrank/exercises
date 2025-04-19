@@ -81,11 +81,11 @@ jobs:
 
       - name: Extract version from tag
         id: get_version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - name: Build with Maven
         run: |
-          mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${{ env.VERSION }}
+          mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${{ steps.get_version.outputs.VERSION }}
           mvn -B deploy -DskipTests -Pdocker \
               -Ddocker.username=$GITHUB_ACTOR \
               -Ddocker.password=$GITHUB_TOKEN  \
