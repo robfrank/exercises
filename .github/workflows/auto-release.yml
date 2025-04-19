@@ -81,14 +81,12 @@ jobs:
         run: |
           mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${{ env.VERSION }}
           mvn -B deploy -DskipTests -Pdocker \
-              -Dusername=$GITHUB_ACTOR \
-              -Dpassword=$GITHUB_TOKEN \
               -Ddocker.username=$GITHUB_ACTOR \
               -Ddocker.password=$GITHUB_TOKEN  \
               -Ddocker.registry=${{ env.DOCKER_REGISTRY }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release
         if: ${{ success() }}
