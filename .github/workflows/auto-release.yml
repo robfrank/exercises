@@ -78,16 +78,21 @@ jobs:
         run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - name: Build with Maven
-        run: mvn -B deploy -DskipTests -Pdocker \
-          -Ddocker.username=${{ github.actor }} \
-          -Ddocker.password=${{ secrets.GITHUB_TOKEN }} \
-          -Ddocker.registry=${{ env.DOCKER_REGISTRY }}
+        run: |
+          mvn -B deploy -DskipTests -Pdocker \
+              -Dusername=$GITHUB_ACTOR \
+              -Dpassword=$GITHUB_TOKEN \
+              -Ddocker.username=$GITHUB_ACTOR \
+              -Ddocker.password=$GITHUB_TOKEN  \
+              -Ddocker.registry=${{ env.DOCKER_REGISTRY }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
 
       - name: Create GitHub Release
+        if: ${{ succes() }}
         id: create_release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
         with:
           files: |
             cli/target/exercises-cli-${{ steps.get_version.outputs.VERSION }}.jar
