@@ -12,6 +12,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <normalized.os.name>${os.name}</normalized.os.name>
+
         <junit.version>5.12.2</junit.version>
         <assertj.version>3.27.3</assertj.version>
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
@@ -211,7 +213,7 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <imageName>${project.artifactId}-${project.version}</imageName>
+                        <imageName>${project.artifactId}-${project.version}-${normalized.os.name}-${os.arch}</imageName>
                         <skipNativeTests>true</skipNativeTests>
                         <metadataRepository>
                             <enabled>true</enabled>
@@ -257,4 +259,17 @@
             <version>${slf4j-api.version}</version>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>macos</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <properties>
+                <normalized.os.name>macos</normalized.os.name>
+            </properties>
+        </profile>
+    </profiles>
 </project>
