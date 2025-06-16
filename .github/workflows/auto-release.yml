@@ -55,7 +55,7 @@ jobs:
 
       - name: Set up Docker Buildx
         if: ${{ matrix.os != 'windows-latest' }}
-        uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0
+        uses: docker/setup-buildx-action@18ce135bb5112fa8ce4ed6c17ab05699d7f3a5e0 # v3.11.0
 
       - name: Set up JDK 24 (only to have settings.xml)
         uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
@@ -97,14 +97,14 @@ jobs:
       - name: Build Changelog
         if: ${{ success() }}
         id: release_notes
-        uses: mikepenz/release-changelog-builder-action@e92187bd633e680ebfdd15961a7c30b2d097e7ad # v5.3.0
+        uses: mikepenz/release-changelog-builder-action@5fb6e51e44d4aea73f66549f425aa3ed5008109e # v5.3.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release
         if: ${{ success() }}
         id: create_release
-        uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
+        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
         with:
           files: |
             cli/target/exercises-cli-*
