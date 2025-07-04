@@ -18,7 +18,7 @@ repos:
       - id: check-json
       - id: check-xml
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.33.1
+    rev: 0.33.2
     hooks:
       - id: check-dependabot
   #    - repo: https://github.com/adrienverge/yamllint.git
