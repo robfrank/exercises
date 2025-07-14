@@ -62,7 +62,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Test Reporter
-        uses: dorny/test-reporter@890a17cecf52a379fc869ab770a71657660be727 # v2.1.0
+        uses: dorny/test-reporter@dc3a92680fcc15842eef52e8c4606ea7ce6bd3f3 # v2.1.1
         if: success() || failure()
         with:
           name: Test Report - ${{ matrix.os }}
