@@ -1,4 +1,4 @@
-FROM eclipse-temurin:24-jdk-alpine-3.21@sha256:d729416b123cd50d4a70122328ae17d38adced6fa767062d0c0f134e5843deab
+FROM eclipse-temurin:24-jdk-alpine-3.21@sha256:da2196e2ec0d51d8c4c88c19f671952d251dd512c19381d5f6eab6d97dbd5908
 
 
 # Update packages
