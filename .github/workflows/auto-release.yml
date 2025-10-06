@@ -35,7 +35,7 @@ jobs:
           fetch-depth: 0
 
       - name: Cache local Maven repository
-        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
@@ -43,7 +43,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Log in to the ghcr.io
-        uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3.5.0
+        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -64,7 +64,7 @@ jobs:
           java-version: "24"
 
       - name: Set up GraalVM 24
-        uses: graalvm/setup-graalvm@7a1da54cb7fdef4ea19f6ecdfa9ecf59dc5a48fe # v1.3.6
+        uses: graalvm/setup-graalvm@2a2412009026a83f51d179f92dc2b3fd4c8142df # v1.4.1
         with:
           distribution: graalvm-community
           java-version: "24"
@@ -72,7 +72,7 @@ jobs:
           native-image-job-reports: "true"
 
       - name: Cache local Maven repository
-        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
@@ -104,7 +104,7 @@ jobs:
       - name: Create GitHub Release
         if: ${{ success() }}
         id: create_release
-        uses: softprops/action-gh-release@6cbd405e2c4e67a21c47fa9e383d020e4e28b836 # v2.3.3
+        uses: softprops/action-gh-release@62c96d0c4e8a889135c1f3a25910db8dbe0e85f7 # v2.3.4
         with:
           files: |
             cli/target/exercises-cli-*
