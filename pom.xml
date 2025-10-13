@@ -15,7 +15,7 @@
         <normalized.os.name>${os.name}</normalized.os.name>
 
         <junit.version>6.0.0</junit.version>
-        <assertj.version>3.27.4</assertj.version>
+        <assertj.version>3.27.6</assertj.version>
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
         <picocli.version>4.7.7</picocli.version>
         <archunit-junit5.version>1.4.1</archunit-junit5.version>
