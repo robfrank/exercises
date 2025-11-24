@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@16140ae1a102900babc80a33c44059580f687047 # v4.30.9
+        uses: github/codeql-action/init@fdbfb4d2750291e159f0156def62b853c2798ca2 # v4.31.5
         with:
           languages: java
 
@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Set up GraalVM 24
-        uses: graalvm/setup-graalvm@2a2412009026a83f51d179f92dc2b3fd4c8142df # v1.4.1
+        uses: graalvm/setup-graalvm@eec48106e0bf45f2976c2ff0c3e22395cced8243 # v1.4.2
         with:
           distribution: graalvm-community
           java-version: "24"
@@ -49,6 +49,6 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@16140ae1a102900babc80a33c44059580f687047 # v4.30.9
+        uses: github/codeql-action/analyze@fdbfb4d2750291e159f0156def62b853c2798ca2 # v4.31.5
         with:
           category: "/language:java"
