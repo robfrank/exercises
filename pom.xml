@@ -30,7 +30,7 @@
         <native-image-maven-plugin.version>0.11.2</native-image-maven-plugin.version>
         <arch-unit-maven-plugin.version>4.0.2</arch-unit-maven-plugin.version>
 
-        <rewrite-static-analysis.version>2.19.0</rewrite-static-analysis.version>
+        <rewrite-static-analysis.version>2.22.0</rewrite-static-analysis.version>
         <rewrite-logging-frameworks.version>3.16.0</rewrite-logging-frameworks.version>
         <rewrite-maven-plugin.version>6.21.1</rewrite-maven-plugin.version>
         <rewrite-migrate-java.version>3.19.0</rewrite-migrate-java.version>
