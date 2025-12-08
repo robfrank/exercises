@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+      - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
       - uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
 
   build:
@@ -39,20 +39,20 @@ jobs:
 
       - name: Set up QEMU
         if: ${{ matrix.os != 'windows-latest' }}
-        uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
 
       - name: Set up Docker Buildx
         if: ${{ matrix.os != 'windows-latest' }}
         uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3.11.1
 
       - name: Set up JDK 22
-        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        uses: actions/setup-java@f2beeb24e141e01a676f977032f5a29d81c9e27e # v5.1.0
         with:
           distribution: "temurin"
           java-version: "24"
 
       - name: Set up GraalVM 24
-        uses: graalvm/setup-graalvm@2a2412009026a83f51d179f92dc2b3fd4c8142df # v1.4.1
+        uses: graalvm/setup-graalvm@790e28947b79a9c09c3391c0f18bf8d0f102ed69 # v1.4.4
         with:
           distribution: graalvm-community
           java-version: "24"
