@@ -62,7 +62,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Test Reporter
-        uses: dorny/test-reporter@b082adf0eced0765477756c2a610396589b8c637 # v2.5.0
+        uses: dorny/test-reporter@3d76b34a4535afbd0600d347b09a6ee5deb3ed7f # v2.6.0
         if: success() || failure()
         with:
           name: Test Report - ${{ matrix.os }}
@@ -78,7 +78,7 @@ jobs:
           path: ./cli/target/exercises-cli
 
       - name: Scan Image
-        uses: anchore/scan-action@8d2fce09422cd6037e577f4130e9b925e9a37175 # v7.3.1
+        uses: anchore/scan-action@7037fa011853d5a11690026fb85feee79f4c946c # v7.3.2
         id: scan
         with:
           fail-build: false
@@ -87,7 +87,7 @@ jobs:
           severity-cutoff: critical
 
       - name: Upload SARIF Files
-        uses: github/codeql-action/upload-sarif@6bc82e05fd0ea64601dd4b465378bbcf57de0314 # v4.32.1
+        uses: github/codeql-action/upload-sarif@0d579ffd059c29b07949a3cce3983f0780820c98 # v4.32.6
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
 
