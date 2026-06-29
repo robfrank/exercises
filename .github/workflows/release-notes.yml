@@ -11,11 +11,11 @@ jobs:
     steps:
       - name: Build Changelog
         id: github_release
-        uses: mikepenz/release-changelog-builder-action@348e88fab4c37338b1e803ceb2d4a7a5db6c0833 # v6.2.2
+        uses: mikepenz/release-changelog-builder-action@c9bcd8238b6f41e05561348339429d360b1c0247 # v6.2.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
-        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v2.0.8 #softprops/action-gh-release
+        uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v2.0.8 #softprops/action-gh-release
         with:
           body: ${{steps.github_release.outputs.changelog}}
