@@ -49,13 +49,13 @@ jobs:
         uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
         with:
           distribution: "temurin"
-          java-version: "24"
+          java-version: "25"
 
       - name: Set up GraalVM 24
         uses: graalvm/setup-graalvm@27b360dbb857524eaf0b4c4cef364d38e5b4f173 # v1.6.7
         with:
           distribution: graalvm-community
-          java-version: "24"
+          java-version: "25"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: "true"
 
