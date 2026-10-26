@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 public class FizzBuzzMain {
 
   /** Logger for the application */
-  static Logger slf4jLogger = LoggerFactory.getLogger(FizzBuzzMain.class);
+  private static Logger slf4jLogger = LoggerFactory.getLogger(FizzBuzzMain.class);
 
   /**
    * Executes the FizzBuzz program with a configurable rule-based implementation.
