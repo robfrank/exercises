@@ -25,3 +25,18 @@ updates:
         update-types:
           - "minor"
           - "patch"
+  - package-ecosystem: "pre-commit"
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: "sunday"
+    cooldown:
+      default-days: 3
+    open-pull-requests-limit: 10
+    groups:
+      pre-commit-hooks:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"

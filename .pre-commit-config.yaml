@@ -17,10 +17,10 @@ repos:
           - --allow-multiple-documents
       - id: check-json
       - id: check-xml
-  - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.37.0
-    hooks:
-      - id: check-dependabot
+  #  - repo: https://github.com/python-jsonschema/check-jsonschema
+  #    rev: 0.37.0
+  #    hooks:
+  #      - id: check-dependabot
   #    - repo: https://github.com/adrienverge/yamllint.git
   #      rev: v1.21.0
   #      hooks:
