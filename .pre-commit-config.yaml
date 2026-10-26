@@ -36,7 +36,7 @@ repos:
       - id: prettier
         #            types: [java, xml]
         additional_dependencies:
-          - prettier@3.3.3
+          - prettier@3.9.10
           - prettier-plugin-java@v2.6.4
           - "@prettier/plugin-xml@v3.4.1"
         args:
